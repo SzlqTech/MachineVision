@@ -144,10 +144,10 @@
                     </StackPanel>
                 </Grid>
             </md:ColorZone>
-            <md:DialogHost Grid.Row="1">
+            <md:DialogHost Grid.Row="1" Panel.ZIndex="2">
                 <md:DrawerHost Content="{Binding ElementName=MainViewContentControl, Path=Content, Mode=TwoWay}" IsTopDrawerOpen="{Binding IsTopDrawerOpen}">
-                    <md:DrawerHost.TopDrawerContent>
-                        <ItemsControl ItemsSource="{Binding NavigationMenuService.Items[0].Items}">
+                    <md:DrawerHost.TopDrawerContent >
+                        <ItemsControl ItemsSource="{Binding NavigationMenuService.Items[0].Items}" >
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <WrapPanel />

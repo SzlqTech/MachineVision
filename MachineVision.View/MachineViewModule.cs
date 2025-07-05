@@ -1,5 +1,4 @@
-﻿
-
+﻿using MachineVision.Core.Services.DataBase;
 using MachineVision.View.ViewModels;
 using MachineVision.View.Views;
 using Prism.Ioc;
@@ -15,9 +14,10 @@ namespace MachineVision.View
         }
 
         public void RegisterTypes(IContainerRegistry containerRegistry)
-        {
+        {       
             containerRegistry.RegisterForNavigation<MainTabView,MainTabViewModel>();
             containerRegistry.RegisterForNavigation<ProductView,ProductViewModel>();
+            
         }
     }
 }
