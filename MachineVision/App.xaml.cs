@@ -1,6 +1,7 @@
-﻿using Prism.DryIoc;
+﻿using MachineVision.ViewModels;
+using MachineVision.Views;
+using Prism.DryIoc;
 using Prism.Ioc;
-using System;
 using System.Windows;
 
 namespace MachineVision
@@ -15,9 +16,9 @@ namespace MachineVision
             return Container.Resolve<MainWindow>();
         }
 
-        protected override void RegisterTypes(IContainerRegistry containerRegistry)
+        protected override void RegisterTypes(IContainerRegistry service)
         {
-            
+            service.RegisterForNavigation<MainWindow, MainWindowViewModel>();
         }
     }
 }

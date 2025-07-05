@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36203.30 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineVision", "MachineVision\MachineVision.csproj", "{5088247A-1C8A-4822-97C1-96734349D891}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineVision.Core", "MachineVision.Core\MachineVision.Core.csproj", "{F09028B8-FD38-4897-9464-36AEE8CB127B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5088247A-1C8A-4822-97C1-96734349D891}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5088247A-1C8A-4822-97C1-96734349D891}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5088247A-1C8A-4822-97C1-96734349D891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09028B8-FD38-4897-9464-36AEE8CB127B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F09028B8-FD38-4897-9464-36AEE8CB127B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F09028B8-FD38-4897-9464-36AEE8CB127B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09028B8-FD38-4897-9464-36AEE8CB127B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
