@@ -1,12 +1,210 @@
-﻿<Window x:Class="MachineVision.Views.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MachineVision.Views"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+﻿<Window
+    x:Class="MachineVision.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:local="clr-namespace:MachineVision.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="MainWindow"
+    d:Height="1080"
+    d:Width="1920"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    AllowsTransparency="True"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <md:DialogHost Identifier="Root">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <md:ColorZone
+                md:ElevationAssist.Elevation="Dp2"
+                Mode="PrimaryDark"
+                MouseMove="ColorZone_MouseMove">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Margin="5,15"
+                        Cursor="Hand"
+                        FontSize="22"
+                        FontWeight="Bold"
+                        Text="MachineVision">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding GoHomeCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBlock>
+                    <ListBox
+                        x:Name="listMenuBox"
+                        Grid.Column="1"
+                        Margin="10,0"
+                        ItemsSource="{Binding NavigationMenuService.Items}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <!--  鼠标边框颜色  -->
+                                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <Grid>
+                                                <Border x:Name="border" />
+                                                <Border x:Name="borderHeader" Background="{TemplateBinding Background}" />
+                                                <ContentPresenter
+                                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                    TextBlock.Foreground="{TemplateBinding Foreground}" />
+                                            </Grid>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="borderHeader" Property="Background" Value="#ffffff" />
+                                                    <Setter TargetName="borderHeader" Property="Opacity" Value="0.1" />
+                                                    <Setter TargetName="border" Property="BorderBrush" Value="#ffffff" />
+                                                    <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,3" />
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="borderHeader" Property="Background" Value="#ffffff" />
+                                                    <Setter TargetName="borderHeader" Property="Opacity" Value="0.1" />
+                                                    <Setter TargetName="border" Property="BorderBrush" Value="#ffffff" />
+                                                    <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,3" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock
+                                    Margin="10,5"
+                                    FontSize="16"
+                                    Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding NavigateCommand}" CommandParameter="{Binding ElementName=listMenuBox, Path=SelectedItem}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ListBox>
+
+                    <StackPanel
+                        Grid.Column="2"
+                        Margin="0,5,0,5"
+                        Orientation="Horizontal">
+                        <!--<Button
+                            Margin="0,0,5,0"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="主题设置">
+                            <md:PackIcon Foreground="White" Kind="Palette" />
+                        </Button>-->
+                        <!--<Button
+                            Margin="0,0,5,0"
+                            Command="{Binding ShowDeviceCommand}"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="设备管理">
+                            <md:PackIcon Foreground="White" Kind="Link" />
+                        </Button>-->
+                        <!--<Button
+                            Margin="0,0,5,0"
+                            Command="{Binding ShowSettingsCommand}"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="系统设置">
+                            <md:PackIcon Foreground="White" Kind="Settings" />
+                        </Button>-->
+                        <Button
+                            x:Name="BtnMin"
+                            Margin="0,0,5,0"
+                            Click="BtnMinClick"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="最小化">
+                            <md:PackIcon Foreground="White" Kind="Minimize" />
+                        </Button>
+                        <Button
+                            x:Name="BtnMax"
+                            Margin="0,0,5,0"
+                            Click="BtnMaxClick"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="最大化">
+                            <md:PackIcon Foreground="White" Kind="Maximize" />
+                        </Button>
+                        <Button
+                            x:Name="BtnClose"
+                            Margin="0,0,5,0"
+                            Click="BtnCloseClick"
+                            Style="{StaticResource MaterialDesignIconButton}"
+                            ToolTip="退出系统">
+                            <md:PackIcon Foreground="White" Kind="Close" />
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </md:ColorZone>
+            <md:DialogHost Grid.Row="1">
+                <md:DrawerHost Content="{Binding ElementName=MainViewContentControl, Path=Content, Mode=TwoWay}" IsTopDrawerOpen="{Binding IsTopDrawerOpen}">
+                    <md:DrawerHost.TopDrawerContent>
+                        <ItemsControl ItemsSource="{Binding NavigationMenuService.Items[0].Items}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto" />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+                                        <TextBlock
+                                            Margin="15"
+                                            FontWeight="Bold"
+                                            Foreground="White"
+                                            Text="{Binding Name}" />
+                                        <ItemsControl
+                                            Grid.Row="1"
+                                            Margin="10,0,10,10"
+                                            ItemsSource="{Binding Items}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <UniformGrid Columns="2" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Button
+                                                            Margin="5"
+                                                            Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"
+                                                            CommandParameter="{Binding}"
+                                                            Content="{Binding Name}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </md:DrawerHost.TopDrawerContent>
+                </md:DrawerHost>
+            </md:DialogHost>
+            <ContentControl Grid.Row="1" prism:RegionManager.RegionName="MainRegion" />
+        </Grid>
+    </md:DialogHost>
 </Window>

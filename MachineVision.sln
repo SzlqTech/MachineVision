@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineVision", "MachineVis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineVision.Core", "MachineVision.Core\MachineVision.Core.csproj", "{F09028B8-FD38-4897-9464-36AEE8CB127B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MachineVision.View", "MachineVision.View\MachineVision.View.csproj", "{294C97F3-1884-4E89-8854-266A3E780998}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F09028B8-FD38-4897-9464-36AEE8CB127B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F09028B8-FD38-4897-9464-36AEE8CB127B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F09028B8-FD38-4897-9464-36AEE8CB127B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294C97F3-1884-4E89-8854-266A3E780998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294C97F3-1884-4E89-8854-266A3E780998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294C97F3-1884-4E89-8854-266A3E780998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294C97F3-1884-4E89-8854-266A3E780998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
