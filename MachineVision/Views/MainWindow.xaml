@@ -19,7 +19,7 @@
     mc:Ignorable="d">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
@@ -39,7 +39,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
-                    <Button Command="{Binding LoadedCommand}"/>
+                    <Button Command="{Binding LoadedCommand}" />
                     <TextBlock
                         Margin="5,15"
                         Cursor="Hand"
@@ -64,7 +64,7 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem">
-                                  
+
                                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                                 <Setter Property="Template">
                                     <Setter.Value>
@@ -116,7 +116,7 @@
                         Grid.Column="2"
                         Margin="0,5,0,5"
                         Orientation="Horizontal">
-                       
+
                         <Button
                             x:Name="BtnMin"
                             Margin="0,0,5,0"
@@ -180,10 +180,10 @@
                                                     <Grid>
                                                         <Button
                                                             Margin="5"
-                                                            Style="{StaticResource MaterialDesignFlatButton}"
                                                             Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"
                                                             CommandParameter="{Binding}"
-                                                            Content="{Binding Name}" />
+                                                            Content="{Binding Name}"
+                                                            Style="{StaticResource MaterialDesignFlatButton}" />
                                                     </Grid>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
@@ -199,5 +199,5 @@
         </Grid>
     </md:DialogHost>
 
-    
+
 </Window>

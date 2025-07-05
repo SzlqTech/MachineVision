@@ -24,6 +24,7 @@ namespace MachineVision
         {
             service.RegisterForNavigation<MainWindow, MainWindowViewModel>();
             service.AddService();
+            service.AddAutoMapper();
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
