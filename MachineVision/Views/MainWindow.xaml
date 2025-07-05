@@ -17,6 +17,12 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <md:DialogHost Identifier="Root">
         <Grid>
             <Grid.RowDefinitions>
@@ -33,6 +39,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="auto" />
                     </Grid.ColumnDefinitions>
+                    <Button Command="{Binding LoadedCommand}"/>
                     <TextBlock
                         Margin="5,15"
                         Cursor="Hand"
@@ -57,7 +64,7 @@
                         </ListBox.ItemsPanel>
                         <ListBox.ItemContainerStyle>
                             <Style TargetType="ListBoxItem">
-                                <!--  鼠标边框颜色  -->
+                                  
                                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                                 <Setter Property="Template">
                                     <Setter.Value>
@@ -94,6 +101,7 @@
                                 <TextBlock
                                     Margin="10,5"
                                     FontSize="16"
+                                    Foreground="White"
                                     Text="{Binding Name}" />
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -108,26 +116,7 @@
                         Grid.Column="2"
                         Margin="0,5,0,5"
                         Orientation="Horizontal">
-                        <!--<Button
-                            Margin="0,0,5,0"
-                            Style="{StaticResource MaterialDesignIconButton}"
-                            ToolTip="主题设置">
-                            <md:PackIcon Foreground="White" Kind="Palette" />
-                        </Button>-->
-                        <!--<Button
-                            Margin="0,0,5,0"
-                            Command="{Binding ShowDeviceCommand}"
-                            Style="{StaticResource MaterialDesignIconButton}"
-                            ToolTip="设备管理">
-                            <md:PackIcon Foreground="White" Kind="Link" />
-                        </Button>-->
-                        <!--<Button
-                            Margin="0,0,5,0"
-                            Command="{Binding ShowSettingsCommand}"
-                            Style="{StaticResource MaterialDesignIconButton}"
-                            ToolTip="系统设置">
-                            <md:PackIcon Foreground="White" Kind="Settings" />
-                        </Button>-->
+                       
                         <Button
                             x:Name="BtnMin"
                             Margin="0,0,5,0"
@@ -172,9 +161,10 @@
                                             <RowDefinition />
                                         </Grid.RowDefinitions>
                                         <TextBlock
-                                            Margin="15"
+                                            Margin="24"
                                             FontWeight="Bold"
-                                            Foreground="White"
+                                            Foreground="Black"
+                                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
                                             Text="{Binding Name}" />
                                         <ItemsControl
                                             Grid.Row="1"
@@ -190,6 +180,7 @@
                                                     <Grid>
                                                         <Button
                                                             Margin="5"
+                                                            Style="{StaticResource MaterialDesignFlatButton}"
                                                             Command="{Binding DataContext.NavigateCommand, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}}"
                                                             CommandParameter="{Binding}"
                                                             Content="{Binding Name}" />
@@ -207,4 +198,6 @@
             <ContentControl Grid.Row="1" prism:RegionManager.RegionName="MainRegion" />
         </Grid>
     </md:DialogHost>
+
+    
 </Window>

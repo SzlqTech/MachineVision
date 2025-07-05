@@ -1,7 +1,10 @@
-﻿using MachineVision.ViewModels;
+﻿using MachineVision.Extensions;
+using MachineVision.View;
+using MachineVision.ViewModels;
 using MachineVision.Views;
 using Prism.DryIoc;
 using Prism.Ioc;
+using Prism.Modularity;
 using System.Windows;
 
 namespace MachineVision
@@ -15,10 +18,18 @@ namespace MachineVision
         {
             return Container.Resolve<MainWindow>();
         }
+        
 
         protected override void RegisterTypes(IContainerRegistry service)
         {
             service.RegisterForNavigation<MainWindow, MainWindowViewModel>();
+            service.AddService();
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            moduleCatalog.AddModule<MachineViewModule>();
+            base.ConfigureModuleCatalog(moduleCatalog);
         }
     }
 }

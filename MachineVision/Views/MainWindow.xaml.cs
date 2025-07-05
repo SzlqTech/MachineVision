@@ -24,7 +24,7 @@ namespace MachineVision.Views
 
         private void BtnMinClick(object sender, RoutedEventArgs e)
         {
-            this.WindowState = this.WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+            this.WindowState = WindowState.Minimized;
         }
 
         private void BtnMaxClick(object sender, RoutedEventArgs e)
@@ -40,5 +40,7 @@ namespace MachineVision.Views
                 Environment.Exit(0);
             });
         }
+
+       
     }
 }

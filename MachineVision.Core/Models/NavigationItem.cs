@@ -14,10 +14,15 @@ namespace MachineVision.Core.Models
             this.Key = key;
         }
 
+       
         private string name;
+      
         private string icon;
+    
         private ObservableCollection<NavigationItem> items;
+       
         private string pageName;
+       
         private string key;
 
         /// <summary>

@@ -24,6 +24,12 @@ namespace MachineVision.Core.Services
             Items.Clear();
             Items.Add(new NavigationItem("", "All", "全部", "", new ObservableCollection<NavigationItem>()
             {
+                 new NavigationItem("","Firework","流程管理","",new ObservableCollection<NavigationItem>()
+                 {
+                      new NavigationItem("Sitemap","MainTab", "主页面","MainTabView"),
+
+                 }),
+
                  new NavigationItem("","Config","配置管理","",new ObservableCollection<NavigationItem>()
                  {              
                       new NavigationItem("Application","Product", "产品管理","ProductView"),
@@ -31,7 +37,8 @@ namespace MachineVision.Core.Services
                  }),
                 
             }));
-           
+
+            Items.Add(new NavigationItem("Sitemap", "MainTab", "主页面", "MainTabView"));
             Items.Add(new NavigationItem("Application", "Product", "产品管理", "ProductView"));
          
         }

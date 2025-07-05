@@ -1,8 +1,10 @@
 ﻿using Prism.Mvvm;
 using Prism.Regions;
 
+
 namespace MachineVision.Core.ViewModels
 {
+    
     public class NavigationViewMdoel : BindableBase, INavigationAware
     {
         public virtual bool IsNavigationTarget(NavigationContext navigationContext)
