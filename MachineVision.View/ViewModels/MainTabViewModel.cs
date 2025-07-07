@@ -7,7 +7,6 @@ using Prism.Regions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using VM.Core;
 using VM.PlatformSDKCS;
 using VMControls.Interface;
 
@@ -22,7 +21,22 @@ namespace MachineVision.View.ViewModels
         {
             this.productService = productService;
             this.VisionWork = visionWork;
-            ExcuteCommand = new DelegateCommand<string>(Excute);       
+            ExcuteCommand = new DelegateCommand<string>(Excute);
+            visionWork.DataResultReceived -= VisionWork_DataResultReceived;
+            visionWork.DataResultReceived += VisionWork_DataResultReceived;
+        }
+
+        private async void VisionWork_DataResultReceived(object sender, Core.Extensions.TEventArgs<bool> e)
+        {
+            if (e.Data)
+            {
+                SelectProduct.OK += 1;
+            }
+            else
+            {
+               SelectProduct.NG += 1;
+            }
+            await productService.UpdateAsync(SelectProduct);
         }
 
         private async void Excute(string obj)
@@ -44,8 +58,8 @@ namespace MachineVision.View.ViewModels
         {
             if (SelectProduct == null || string.IsNullOrEmpty(SelectProduct.Path)) return;        
             try
-            {
-               await VisionWork.Load(SelectProduct.Path);
+            {            
+                await VisionWork.Load(SelectProduct.Path);
                 IsEnable = false;
             }
             catch (VmException ex)

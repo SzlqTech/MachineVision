@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MachineVision.Core.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,12 +12,18 @@ namespace MachineVision.View.Services
     {
         IVmModule ImageSource { get; set; }
 
+        bool Result { get; set; }
+
+        void CloseVM();
+
         Task Load(string path);
 
         Task<IVmModule> RunOnce();
 
         void Run();
 
-        void Stop();    
+        Task Stop();    
+
+        event EventHandler<TEventArgs<bool>> DataResultReceived;
     }
 }

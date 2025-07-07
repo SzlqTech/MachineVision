@@ -152,6 +152,7 @@
     <Compile Include="Events\BusyAsyncModel.cs" />
     <Compile Include="Events\MessageEvent.cs" />
     <Compile Include="Events\SnackBarModel.cs" />
+    <Compile Include="Extensions\TEventArgs.cs" />
     <Compile Include="Mapper\AppMapper.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\NavigationItem.cs" />
