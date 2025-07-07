@@ -12,11 +12,11 @@ namespace MachineVision.Core.ViewModels
             return true;
         }
 
-        public virtual void OnNavigatedFrom(NavigationContext navigationContext)
+        public virtual  void OnNavigatedFrom(NavigationContext navigationContext)
         {
         }
 
-        public virtual void OnNavigatedTo(NavigationContext navigationContext)
+        public virtual  void OnNavigatedTo(NavigationContext navigationContext)
         {
         }
     }

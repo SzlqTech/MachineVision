@@ -6,12 +6,43 @@ namespace MachineVision.Core.Models
 {
     public class BaseModel:BindableBase
     {
-        public long Id { get; set; }
 
-        public DateTime CreateDate { get; set; }
+        private long id;
+        private DateTime createDate;
+        private DateTime updateDate;
+        private string code;
+        private string name;
 
-        public DateTime UpdateDate { get; set; }
+        public long Id
+        {
+            get { return id; }
+            set { id = value; RaisePropertyChanged(); }
+        }
 
-        public string Code { get; set; }
+        public DateTime CreateDate
+        {
+            get { return createDate; }
+            set { createDate = value;RaisePropertyChanged(); }
+        }
+
+        public DateTime UpdateDate
+        {
+            get { return updateDate; }
+            set { updateDate = value;RaisePropertyChanged(); }
+        }
+
+
+        public string Code
+        {
+            get { return code; }
+            set { code = value;RaisePropertyChanged(); }
+        }
+
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
     }
 }

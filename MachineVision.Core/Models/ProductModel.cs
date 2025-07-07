@@ -4,12 +4,29 @@ namespace MachineVision.Core.Models
 {
     public class ProductModel: BaseModel
     {
-        public string Name { get; set; }
 
-        public int OK { get; set; }
+        private int ok;
+        private int ng;
+        private string path;
 
-        public int NG { get; set; }
+        public int OK
+        {
+            get { return ok; }
+            set { ok = value;RaisePropertyChanged(); }
+        }
 
-        public string Path { get; set; }
+        public int NG
+        {
+            get { return ng; }
+            set { ng = value;RaisePropertyChanged(); }
+        }
+
+
+        public string Path
+        {
+            get { return path; }
+            set { path = value;RaisePropertyChanged(); }
+        }
+
     }
 }

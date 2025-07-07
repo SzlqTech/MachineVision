@@ -1,5 +1,6 @@
 ﻿using MachineVision.Core.Entity;
 using MachineVision.Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -16,6 +17,12 @@ namespace MachineVision.Core.Services.DataBase
         public async Task<bool> DeleteAsync(long id)
         {
             return await Sql.Delete<Product>(new { id = id }).ExecuteAffrowsAsync() > 0;
+        }
+
+        public async Task<List<ProductModel>> GetListAsync()
+        {
+            var models = await Sql.Select<Product>().ToListAsync();
+            return mapper.Map<List<ProductModel>>(models);
         }
 
         public async Task<List<ProductModel>> GetListAsync(string filterText)
@@ -35,6 +42,7 @@ namespace MachineVision.Core.Services.DataBase
         public async Task<bool> UpdateAsync(ProductModel input)
         {
             var model = mapper.Map<Product>(input);
+            model.UpdateDate = DateTime.Now;
             return await Sql.Update<Product>()
                         .SetDto(model)
                         .Where(q => q.Id == input.Id)
@@ -43,10 +51,12 @@ namespace MachineVision.Core.Services.DataBase
 
         public async Task<bool> InsertOrUpdateBatchAsync(List<ProductModel> inputs)
         {
-            var models = mapper.Map<List<ProductModel>>(inputs);
-            return await Sql.InsertOrUpdate<ProductModel>()
+            var models = mapper.Map<List<Product>>(inputs);
+            models.ForEach(s=>s.CreateDate=DateTime.Now);
+            models.ForEach(s => s.UpdateDate = DateTime.Now);
+            return await Sql.InsertOrUpdate<Product>()
                             .IfExistsDoNothing()//如果数据存在，啥事也不干（相当于只有不存在数据时才插入）
-                            .SetSource(models)
+                            .SetSource(models)                   
                             .ExecuteAffrowsAsync()>0;
         }
     }

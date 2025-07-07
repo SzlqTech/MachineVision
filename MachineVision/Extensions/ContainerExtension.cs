@@ -18,7 +18,7 @@ namespace MachineVision.Extensions
             service.Register<BaseService,ProductService>();
             var Sql = new FreeSqlBuilder()
           .UseConnectionString(FreeSql.DataType.Sqlite, @"Data Source=freedb.db")
-          .UseAutoSyncStructure(true)  // 开发环境自动同步实体结构
+          .UseAutoSyncStructure(true)  // 开发环境自动同步实体结构 
           .Build();
             // 注册 FreeSql 为单例服务
            service.RegisterSingleton<IFreeSql>(() => Sql);

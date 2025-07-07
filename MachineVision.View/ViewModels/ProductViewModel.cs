@@ -1,11 +1,10 @@
-﻿using AutoMapper;
-using MachineVision.Core.Models;
+﻿using MachineVision.Core.Models;
 using MachineVision.Core.Services.DataBase;
 using MachineVision.Core.ViewModels;
 using Microsoft.Win32;
 using Prism.Commands;
-using Prism.Ioc;
 using Prism.Regions;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -52,7 +51,7 @@ namespace MachineVision.View.ViewModels
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "VM Sol File|*.sol*";
                 if ((bool)openFileDialog.ShowDialog())
-                {
+                {        
                     product.Path=openFileDialog.FileName;
                 }
             });
@@ -63,9 +62,12 @@ namespace MachineVision.View.ViewModels
            await productService.InsertOrUpdateBatchAsync(Products.ToList());        
         }
 
-        public override void OnNavigatedTo(NavigationContext navigationContext)
+        public override async void OnNavigatedTo(NavigationContext navigationContext)
         {
-           
+            List<ProductModel> products =await productService.GetListAsync();
+            Products = new ObservableCollection<ProductModel>();
+            Products.AddRange(products);
+
         }
     }
 }
