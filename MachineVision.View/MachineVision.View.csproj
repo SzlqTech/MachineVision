@@ -540,6 +540,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\VisionBaseWorkflow.cs" />
+    <Compile Include="Services\IWorkCore.cs" />
     <Compile Include="ViewModels\MainTabViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="Views\MainTabView.xaml.cs">

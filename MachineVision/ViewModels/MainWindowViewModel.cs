@@ -1,11 +1,10 @@
-﻿
+﻿using MachineVision.Core.Events;
 using MachineVision.Core.Models;
 using MachineVision.Core.Services;
 using MachineVision.Core.ViewModels;
 using Prism.Commands;
+using Prism.Events;
 using Prism.Regions;
-
-
 
 namespace MachineVision.ViewModels
 {
@@ -13,17 +12,24 @@ namespace MachineVision.ViewModels
     public class MainWindowViewModel: NavigationViewMdoel
     {
         private readonly IRegionManager manager;
+        private readonly IEventAggregator aggregator;
 
         public INavigationMenuService NavigationMenuService { get; }
-        public MainWindowViewModel(INavigationMenuService navigationMenuService, IRegionManager manager )
+        public MainWindowViewModel(INavigationMenuService navigationMenuService, IRegionManager manager, IEventAggregator aggregator )
         {
             NavigationMenuService = navigationMenuService;
             this.manager = manager;
+            this.aggregator = aggregator;
             InitCommand();
+            aggregator.ResgiterBusyAsyncMessage(arg =>
+            {
+                IsOpen = arg.IsOpen;
+            }, "Main");
         }
 
         public bool IsTopDrawerOpen { get; set; }
 
+        public bool IsOpen { get; set; }
 
         public DelegateCommand<NavigationItem> NavigateCommand { get;set; }
 

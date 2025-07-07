@@ -149,6 +149,9 @@
   <ItemGroup>
     <Compile Include="Entity\BaseEntity.cs" />
     <Compile Include="Entity\Product.cs" />
+    <Compile Include="Events\BusyAsyncModel.cs" />
+    <Compile Include="Events\MessageEvent.cs" />
+    <Compile Include="Events\SnackBarModel.cs" />
     <Compile Include="Mapper\AppMapper.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\NavigationItem.cs" />
@@ -160,6 +163,7 @@
     <Compile Include="Services\NavigationMenuService.cs" />
     <Compile Include="ViewModels\DialogViewModel.cs" />
     <Compile Include="ViewModels\NavigationViewMdoel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

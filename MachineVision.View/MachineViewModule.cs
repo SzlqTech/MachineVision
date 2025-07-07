@@ -1,4 +1,4 @@
-﻿using MachineVision.Core.Services.DataBase;
+﻿using MachineVision.View.Services;
 using MachineVision.View.ViewModels;
 using MachineVision.View.Views;
 using Prism.Ioc;
@@ -17,7 +17,9 @@ namespace MachineVision.View
         {       
             containerRegistry.RegisterForNavigation<MainTabView,MainTabViewModel>();
             containerRegistry.RegisterForNavigation<ProductView,ProductViewModel>();
-            
+            containerRegistry.Register<IWorkCore, VisionBaseWorkflow>();
+
+
         }
     }
 }

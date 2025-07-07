@@ -55,7 +55,7 @@ namespace MachineVision.Core.Services.DataBase
             models.ForEach(s=>s.CreateDate=DateTime.Now);
             models.ForEach(s => s.UpdateDate = DateTime.Now);
             return await Sql.InsertOrUpdate<Product>()
-                            .IfExistsDoNothing()//如果数据存在，啥事也不干（相当于只有不存在数据时才插入）
+                            //.IfExistsDoNothing()//如果数据存在，啥事也不干（相当于只有不存在数据时才插入）
                             .SetSource(models)                   
                             .ExecuteAffrowsAsync()>0;
         }

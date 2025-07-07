@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:MachineVision.View.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:VMControls.WPF.Release;assembly=VMControls.WPF.Release"
@@ -20,7 +21,54 @@
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <vm:VmRenderControl />
+                <vm:VmProcedureConfigControl Visibility="Hidden"/>
+                <vm:VmRenderControl x:Name="VmRenderControl"  ModuleSource="{Binding ImageSource, Mode=TwoWay}"/>
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <ComboBox
+                            MinWidth="150"
+                            DisplayMemberPath="Name"
+                            IsEnabled="{Binding IsEnable}"
+                            ItemsSource="{Binding Products}"
+                            SelectedItem="{Binding SelectProduct}"
+                            SelectedValuePath="Code" />
+                    </StackPanel>
+                    <GroupBox
+                        Grid.Row="1"
+                        Margin="10"
+                        Header="手动操作">
+                        <WrapPanel Orientation="Horizontal">
+                            <Button
+                                Margin="10,5"
+                                Command="{Binding ExcuteCommand}"
+                                CommandParameter="Load"
+                                Content="加载方案" />
+                            <Button
+                                Margin="10,5"
+                                Command="{Binding ExcuteCommand}"
+                                CommandParameter="RunOnce"
+                                Content="运行一次方案" />
+                            <Button
+                                Margin="10,5"
+                                Command="{Binding ExcuteCommand}"
+                                CommandParameter="Run"
+                                Content="连续运行方案" />
+                            <Button
+                                Margin="10,5"
+                                Command="{Binding ExcuteCommand}"
+                                CommandParameter="Stop"
+                                Content="停止运行" />
+                        </WrapPanel>
+
+                    </GroupBox>
+
+                </Grid>
             </Grid>
         </Grid>
     </Grid>
