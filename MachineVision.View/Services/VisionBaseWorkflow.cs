@@ -1,8 +1,12 @@
 ﻿using IfModuleCs;
 using MachineVision.Core.Extensions;
+using MachineVision.Core.Models;
 using MachineVision.Core.ViewModels;
 using System;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using System.Windows;
+using TimeStatisticModuleCs;
 using VM.Core;
 using VM.PlatformSDKCS;
 using VMControls.Interface;
@@ -11,9 +15,14 @@ namespace MachineVision.View.Services
 {
     public class VisionBaseWorkflow :ViewModelBase, IWorkCore
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+        public int SN { get; set; } = 0;
+
+        public bool IsOpen { get; set; }
 
         public VisionBaseWorkflow()
         {
+            Results = new ObservableCollection<InspectionResult>();
             VmSolution.OnWorkStatusEvent -= VmSolution_OnWorkStatusEvent;
             VmSolution.OnWorkStatusEvent += VmSolution_OnWorkStatusEvent;
         }
@@ -58,62 +67,105 @@ namespace MachineVision.View.Services
                     {
                         VmProcedure vmProcedure = VmSolution.Instance["流程1"] as VmProcedure;
                         IfModuleTool ifModule= vmProcedure["条件检测1"] as IfModuleTool;
-                        if(ifModule != null)
+                        TimeStatisticModuleTool timeStatisticModule = vmProcedure["耗时统计1"] as TimeStatisticModuleTool;                 
+                        if (ifModule != null)
                         {
-                            if (ifModule.ModuResult.StrResult.Trim().Equals("OK"))
-                                OnRasiseDataResultReceived(true);
+                            InspectionResult result = new InspectionResult();
+                            if(timeStatisticModule != null)
+                            {
+                                result.TimeSpan =Math.Round(timeStatisticModule.ModuResult.Time,2);
+                            }
                             else
+                            {
+                                result.TimeSpan = 0;
+                            }
+                           
+                            if (ifModule.ModuResult.StrResult.Trim().Equals("OK"))
+                            {
+                                OnRasiseDataResultReceived(true);
+                                result.IsSuccess = true;
+                            }
+
+                            else
+                            {
                                 OnRasiseDataResultReceived(false);
+                                result.IsSuccess = false;
+                            }
+                             
+                            Application.Current.Dispatcher.Invoke(() =>
+                            {
+                                if (Results.Count > 20)
+                                {
+                                    Results.RemoveAt(0);
+                                }
+                                SN++;
+                                result.SN = SN;
+                                Results.Add(result);
+                            });
+                          
                         }
                     }
                 }
             }
             catch (VmException ex)
             {
-                throw ex;
+                Logger.Error(ex, "回调失败失败");
             }
         }
 
         public IVmModule ImageSource { get; set ; }
 
         public bool Result { get; set; }
+        public ObservableCollection<InspectionResult> Results { get ; set ; }
 
-        public virtual async Task Load(string path)
+        public virtual async Task<bool> Load(string path)
         {
             try
             {
+                if(IsOpen)
+                {
+                    SendMessage("方案已经加载");
+                    return false;
+                }
                 await SetBusyAsync(async () =>
                 {
                     await Task.Run(() =>
-                    {
-                        //KillProcess("VisionMasterServerApp");
-                        //KillProcess("VisionMaster");
-                        //KillProcess("VmModuleProxy.exe");
+                    {                 
                         VmSolution.Load(path);
                     });
+                    IsOpen = true;
                 });
-              
-                SendMessage("加载成功");
+
+                return true;
             }
             catch (VmException ex)
             {
-                throw ex;
+                Logger.Error(ex, "加载失败");
+                return false;
+                
             }
             catch (Exception ex)
             {
-                throw ex;
+                Logger.Error(ex, "加载失败");
+                return false;
+                
             }
         }
 
         public virtual void Run()
         {
-            throw new NotImplementedException();
+            
         }
 
         public async Task<IVmModule> RunOnce()
         {
             try
             {
+                if (!IsOpen)
+                {
+                    SendMessage("方案未加载");
+                    return null;
+                }
                 await SetBusyAsync(async () =>
                 {
                     await Task.Run(() =>
@@ -128,30 +180,40 @@ namespace MachineVision.View.Services
             }
             catch (VmException ex)
             {
-                throw ex;
+                Logger.Error(ex, "运行失败");   
+                return null;
             }
             catch (Exception ex)
             {
-                throw ex;
+                Logger.Error(ex, "运行失败");
+                return null;
             }
         }
 
-        public virtual async Task Stop()
+        public virtual async Task<bool> Stop()
         {
             try
             {
+                if (!IsOpen)
+                {
+                    SendMessage("方案未加载");
+                    return false;
+                }
                 await SetBusyAsync(async () =>
                 {
                     await Task.Run(() =>
                     {
-                        VmSolution.Instance?.Dispose();
+                        VmSolution.Instance?.CloseSolution();                
                     });
-                });        
-                SendMessage("停止成功");
+                    IsOpen= false;
+                });
+                //SendMessage("停止成功");
+                return true;
             }
             catch (VmException ex)
             {
-                throw ex;
+                Logger.Error(ex, "停止失败");
+                return false;
             }
         }
 

@@ -25,6 +25,11 @@ namespace MachineVision.ViewModels
             {
                 IsOpen = arg.IsOpen;
             }, "Main");
+            GoHomeCommand= new DelegateCommand(() =>
+            {
+                NavigatePage("MainTabView");
+                IsTopDrawerOpen = false;
+            });
         }
 
         public bool IsTopDrawerOpen { get; set; }
@@ -35,6 +40,7 @@ namespace MachineVision.ViewModels
 
         public DelegateCommand LoadedCommand { get;set; }
 
+        public DelegateCommand GoHomeCommand { get; set; }
 
         public void Navigate(NavigationItem item)
         {

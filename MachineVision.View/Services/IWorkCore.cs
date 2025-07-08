@@ -1,6 +1,8 @@
 ﻿using MachineVision.Core.Extensions;
+using MachineVision.Core.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,16 +16,20 @@ namespace MachineVision.View.Services
 
         bool Result { get; set; }
 
+        bool IsOpen { get; set; }
+
         void CloseVM();
 
-        Task Load(string path);
+        Task<bool> Load(string path);
 
         Task<IVmModule> RunOnce();
 
         void Run();
 
-        Task Stop();    
+        Task<bool> Stop();    
 
         event EventHandler<TEventArgs<bool>> DataResultReceived;
+
+        ObservableCollection<InspectionResult> Results { get; set; }
     }
 }

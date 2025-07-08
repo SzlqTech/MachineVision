@@ -1,4 +1,5 @@
-﻿using MachineVision.Core.Models;
+﻿using MachineVision.Core.Logs;
+using MachineVision.Core.Models;
 using MachineVision.Core.Services.DataBase;
 using MachineVision.Core.ViewModels;
 using MachineVision.View.Services;
@@ -14,13 +15,17 @@ namespace MachineVision.View.ViewModels
 {
     public class MainTabViewModel: NavigationViewMdoel
     {
+        private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
         private readonly ProductService productService;
         public  IWorkCore VisionWork { get; }
+        public ILogService LogService { get; }
 
-        public MainTabViewModel(ProductService productService, IWorkCore visionWork)
+        public MainTabViewModel(ProductService productService, IWorkCore visionWork, ILogService logService)
         {
             this.productService = productService;
             this.VisionWork = visionWork;
+            LogService = logService;
             ExcuteCommand = new DelegateCommand<string>(Excute);
             visionWork.DataResultReceived -= VisionWork_DataResultReceived;
             visionWork.DataResultReceived += VisionWork_DataResultReceived;
@@ -50,7 +55,7 @@ namespace MachineVision.View.ViewModels
                 case "Run":
                     Run(); break;
                 case "Stop":
-                    Stop(); break;
+                   await Stop(); break;
             }
         }
 
@@ -59,12 +64,15 @@ namespace MachineVision.View.ViewModels
             if (SelectProduct == null || string.IsNullOrEmpty(SelectProduct.Path)) return;        
             try
             {            
-                await VisionWork.Load(SelectProduct.Path);
-                IsEnable = false;
+                if(await VisionWork.Load(SelectProduct?.Path))
+                {
+                    IsEnable = false;
+                    LogService.Info($"加载产品：{SelectProduct?.Name} 成功！");
+                }      
             }
             catch (VmException ex)
             {
-                throw ex;
+                Logger.Error(ex, "加载错误");
             }
         }
 
@@ -77,7 +85,7 @@ namespace MachineVision.View.ViewModels
             catch (VmException ex)
             {
 
-                throw ex;
+                Logger.Error(ex, "运行错误");
             }
         }
 
@@ -86,16 +94,19 @@ namespace MachineVision.View.ViewModels
 
         }
 
-        public void Stop()
+        public async Task Stop()
         {         
             try
             {
-                VisionWork.Stop();
-                IsEnable = true;
+                if(await VisionWork.Stop())
+                {
+                    IsEnable = true;
+                    LogService.Info($"停止产品：{SelectProduct?.Name} 成功！");
+                }    
             }
             catch (VmException ex)
             {
-                throw ex;
+                Logger.Error(ex, "停止错误");
             }
         }
 

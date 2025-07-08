@@ -1,6 +1,7 @@
 ﻿
 using AutoMapper;
 using FreeSql;
+using MachineVision.Core.Logs;
 using MachineVision.Core.Mapper;
 using MachineVision.Core.Services;
 using MachineVision.Core.Services.DataBase;
@@ -17,11 +18,12 @@ namespace MachineVision.Extensions
             service.Register<INavigationMenuService, NavigationMenuService>();
             service.Register<BaseService,ProductService>();
             var Sql = new FreeSqlBuilder()
-          .UseConnectionString(FreeSql.DataType.Sqlite, @"Data Source=freedb.db")
-          .UseAutoSyncStructure(true)  // 开发环境自动同步实体结构 
-          .Build();
+                  .UseConnectionString(FreeSql.DataType.Sqlite, @"Data Source=freedb.db")
+                  .UseAutoSyncStructure(true)  // 开发环境自动同步实体结构 
+                  .Build();
             // 注册 FreeSql 为单例服务
-           service.RegisterSingleton<IFreeSql>(() => Sql);
+            service.RegisterSingleton<IFreeSql>(() => Sql);
+            service.Register<ILogService, LogService>();
         }
 
         public static void AddAutoMapper(this IContainerRegistry service)
