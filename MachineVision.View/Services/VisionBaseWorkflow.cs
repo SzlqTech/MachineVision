@@ -1,11 +1,15 @@
 ﻿using IfModuleCs;
+using IMVSAffineTransformModuCs;
 using MachineVision.Core.Extensions;
 using MachineVision.Core.Models;
 using MachineVision.Core.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Documents;
 using TimeStatisticModuleCs;
 using VM.Core;
 using VM.PlatformSDKCS;
@@ -19,6 +23,8 @@ namespace MachineVision.View.Services
         public int SN { get; set; } = 0;
 
         public bool IsOpen { get; set; }
+
+        public ObservableCollection<IVmModule> DefectImages { get;} = new ObservableCollection<IVmModule>();
 
         public VisionBaseWorkflow()
         {
@@ -51,9 +57,24 @@ namespace MachineVision.View.Services
 
         public event EventHandler<TEventArgs<bool>> DataResultReceived;
 
+        public event EventHandler<TEventArgs<IVmModule>> DefectImageReceived;
+
+        public IVmModule DefectImage1 { get; set; }
+
+        public IVmModule DefectImage2 { get; set; }
+
+        public IVmModule DefectImage3 { get; set; }
+
+        public int Index { get; set; } = 1;
+
         public void OnRasiseDataResultReceived(bool result)
         {
             DataResultReceived?.Invoke(this, new TEventArgs<bool>(result));
+        }
+
+        public void OnRasiseDefectImageReceived(IVmModule defectImage)
+        {
+            DefectImageReceived?.Invoke(this, new TEventArgs<IVmModule>(defectImage));
         }
 
         public virtual void VmSolution_OnWorkStatusEvent(ImvsSdkDefine.IMVS_MODULE_WORK_STAUS workStatusInfo)
@@ -70,6 +91,7 @@ namespace MachineVision.View.Services
                         TimeStatisticModuleTool timeStatisticModule = vmProcedure["耗时统计1"] as TimeStatisticModuleTool;                 
                         if (ifModule != null)
                         {
+                            
                             InspectionResult result = new InspectionResult();
                             if(timeStatisticModule != null)
                             {
@@ -83,11 +105,24 @@ namespace MachineVision.View.Services
                             if (ifModule.ModuResult.StrResult.Trim().Equals("OK"))
                             {
                                 OnRasiseDataResultReceived(true);
+                               
                                 result.IsSuccess = true;
                             }
 
                             else
                             {
+
+                                IMVSAffineTransformModuTool iMVSAffineTransformModuTool = vmProcedure["仿射变换1"] as IMVSAffineTransformModuTool;
+                                if (iMVSAffineTransformModuTool != null&& iMVSAffineTransformModuTool.ModuResult.OutputImage!=null)
+                                {
+
+                                    if (DefectImages.Count >= 3)
+                                    {
+                                        DefectImages.RemoveAt(0);
+                                    }
+                                    DefectImages.Add(iMVSAffineTransformModuTool);
+                                    //OnRasiseDefectImageReceived(iMVSAffineTransformModuTool);
+                                }                          
                                 OnRasiseDataResultReceived(false);
                                 result.IsSuccess = false;
                             }
@@ -113,6 +148,8 @@ namespace MachineVision.View.Services
             }
         }
 
+       
+
         public IVmModule ImageSource { get; set ; }
 
         public bool Result { get; set; }
@@ -127,6 +164,7 @@ namespace MachineVision.View.Services
                     SendMessage("方案已经加载");
                     return false;
                 }
+                Results.Clear();
                 await SetBusyAsync(async () =>
                 {
                     await Task.Run(() =>
@@ -157,7 +195,7 @@ namespace MachineVision.View.Services
             
         }
 
-        public async Task<IVmModule> RunOnce()
+        public virtual async Task<IVmModule> RunOnce()
         {
             try
             {

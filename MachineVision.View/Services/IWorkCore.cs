@@ -31,5 +31,9 @@ namespace MachineVision.View.Services
         event EventHandler<TEventArgs<bool>> DataResultReceived;
 
         ObservableCollection<InspectionResult> Results { get; set; }
+
+        ObservableCollection<IVmModule> DefectImages { get; }
+
+        event EventHandler<TEventArgs<IVmModule>> DefectImageReceived;
     }
 }

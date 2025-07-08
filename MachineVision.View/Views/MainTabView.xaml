@@ -7,7 +7,6 @@
     xmlns:local="clr-namespace:MachineVision.View.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:VMControls.WPF.Release;assembly=VMControls.WPF.Release"
-
     mc:Ignorable="d">
     <Grid>
         <Grid>
@@ -67,16 +66,53 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </Viewbox>
-            <Grid Grid.Row="1" Margin="0 0 0 5">
+            <Grid Grid.Row="1" Margin="0,0,0,5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="2*" />
                     <ColumnDefinition Width="0.7*" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <vm:VmProcedureConfigControl Visibility="Hidden" />
-                <vm:VmRenderControl x:Name="VmRenderControl" ModuleSource="{Binding ImageSource, Mode=TwoWay}" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="3*" />
+                       
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <vm:VmProcedureConfigControl Visibility="Hidden" />
+                        <vm:VmRenderControl x:Name="VmRenderControl" ModuleSource="{Binding ImageSource, Mode=TwoWay}" />
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <!--<ItemsControl ItemsSource="{Binding DefectImages}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="3" Margin="5"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <vm:VmRenderControl  ModuleSource="{Binding ImageSource, Mode=TwoWay}" />
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>-->
+                        <!--<Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>-->
+                        <!--<vm:VmRenderControl Margin="5" ModuleSource="{Binding VisionWork.DefectImages[0], Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+                        <vm:VmRenderControl
+                            Grid.Column="1"
+                            Margin="5"
+                            ModuleSource="{Binding VisionWork.DefectImages[1], Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+                        <vm:VmRenderControl
+                            Grid.Column="2"
+                            Margin="5"
+                            ModuleSource="{Binding VisionWork.DefectImages[2], Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />-->
+                    </Grid>
+                </Grid>
+
                 <Grid Grid.Column="1">
-                   
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto" />
                         <RowDefinition Height="*" />
@@ -86,7 +122,10 @@
                         FontWeight="Bold"
                         Style="{StaticResource MaterialDesignTitleMediumTextBlock}"
                         Text="日志显示" />
-                    <Border BorderThickness="1 1 0.5 1" Grid.RowSpan="2" BorderBrush="Gray"/>
+                    <Border
+                        Grid.RowSpan="2"
+                        BorderBrush="Gray"
+                        BorderThickness="1,1,0.5,1" />
                     <ItemsControl Grid.Row="1" ItemsSource="{Binding LogService.Logs}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -182,9 +221,13 @@
                         </WrapPanel>
 
                     </GroupBox>
-                    <Border BorderThickness="1 1 0.5 1" Grid.RowSpan="4" BorderBrush="Gray"/>
+                    <Border
+                        Grid.RowSpan="4"
+                        BorderBrush="Gray"
+                        BorderThickness="1,1,0.5,1" />
                 </Grid>
             </Grid>
+
         </Grid>
     </Grid>
 </UserControl>

@@ -1,10 +1,12 @@
-﻿using MachineVision.Core.Logs;
+﻿using MachineVision.Core.Extensions;
+using MachineVision.Core.Logs;
 using MachineVision.Core.Models;
 using MachineVision.Core.Services.DataBase;
 using MachineVision.Core.ViewModels;
 using MachineVision.View.Services;
 using Prism.Commands;
 using Prism.Regions;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -21,6 +23,11 @@ namespace MachineVision.View.ViewModels
         public  IWorkCore VisionWork { get; }
         public ILogService LogService { get; }
 
+        /// <summary>
+        /// 缺陷检测图片
+        /// </summary>
+        public ObservableCollection<IVmModule> DefectImages { get; set; } = new ObservableCollection<IVmModule>();
+
         public MainTabViewModel(ProductService productService, IWorkCore visionWork, ILogService logService)
         {
             this.productService = productService;
@@ -29,6 +36,18 @@ namespace MachineVision.View.ViewModels
             ExcuteCommand = new DelegateCommand<string>(Excute);
             visionWork.DataResultReceived -= VisionWork_DataResultReceived;
             visionWork.DataResultReceived += VisionWork_DataResultReceived;
+            visionWork.DefectImageReceived -= VisionWork_DefectImageReceived;
+            visionWork.DefectImageReceived += VisionWork_DefectImageReceived;
+        }
+
+        private void VisionWork_DefectImageReceived(object sender, TEventArgs<IVmModule> e)
+        {
+            if (DefectImages.Count>=3)
+            {
+                DefectImages.RemoveAt(0);
+            }
+            DefectImages.Add(e.Data);
+
         }
 
         private async void VisionWork_DataResultReceived(object sender, Core.Extensions.TEventArgs<bool> e)
@@ -117,6 +136,8 @@ namespace MachineVision.View.ViewModels
         public ProductModel SelectProduct { get;set; }
 
         public IVmModule ImageSource { get; set; }
+
+      
 
         public DelegateCommand<string> ExcuteCommand { get; set; }
 
