@@ -1,9 +1,11 @@
 ﻿
 using AutoMapper;
 using FreeSql;
+using MachineVision.Core.Enum;
 using MachineVision.Core.Logger;
 using MachineVision.Core.Mapper;
 using MachineVision.Core.Services;
+using MachineVision.Core.Services.Carmer;
 using MachineVision.Core.Services.DataBase;
 using MachineVision.Core.ViewModels;
 using Prism.Ioc;
@@ -26,6 +28,7 @@ namespace MachineVision.Extensions
             service.Register<ILoggerService, LoggerService>();
             service.Register<IHostDialogAware, DialogViewModel>();
             service.RegisterSingleton<IHostDialogService, HostDialogService>();
+            service.Register<ICarmerService,HIKCarmerService>(nameof(CameraType.HIKVision));
             service.AddAutoMapper();
         }
 
