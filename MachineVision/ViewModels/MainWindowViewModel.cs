@@ -2,9 +2,11 @@
 using MachineVision.Core.Models;
 using MachineVision.Core.Services;
 using MachineVision.Core.ViewModels;
+using MachineVision.Views;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Regions;
+using Prism.Services.Dialogs;
 
 namespace MachineVision.ViewModels
 {
@@ -13,13 +15,16 @@ namespace MachineVision.ViewModels
     {
         private readonly IRegionManager manager;
         private readonly IEventAggregator aggregator;
+        private readonly IHostDialogService dialog;
 
         public INavigationMenuService NavigationMenuService { get; }
-        public MainWindowViewModel(INavigationMenuService navigationMenuService, IRegionManager manager, IEventAggregator aggregator )
+        public MainWindowViewModel(INavigationMenuService navigationMenuService, IRegionManager manager, 
+            IEventAggregator aggregator, IHostDialogService dialog)
         {
             NavigationMenuService = navigationMenuService;
             this.manager = manager;
             this.aggregator = aggregator;
+            this.dialog = dialog;
             InitCommand();
             aggregator.ResgiterBusyAsyncMessage(arg =>
             {
@@ -30,6 +35,8 @@ namespace MachineVision.ViewModels
                 NavigatePage("MainTabView");
                 IsTopDrawerOpen = false;
             });
+            SettingCommand = new DelegateCommand(ShowDevice);
+           
         }
 
         public bool IsTopDrawerOpen { get; set; }
@@ -41,6 +48,8 @@ namespace MachineVision.ViewModels
         public DelegateCommand LoadedCommand { get;set; }
 
         public DelegateCommand GoHomeCommand { get; set; }
+
+        public DelegateCommand SettingCommand { get; set; }
 
         public void Navigate(NavigationItem item)
         {
@@ -71,6 +80,11 @@ namespace MachineVision.ViewModels
         {
             NavigationMenuService.InitMenus();
             NavigatePage("MainTabView");
+        }
+
+        private async void ShowDevice()
+        {
+            var dialogResult = await dialog.ShowDialogAsync(nameof(SettingsView));
         }
 
         public void InitCommand()

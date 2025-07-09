@@ -18,8 +18,7 @@ namespace MachineVision.View
             containerRegistry.RegisterForNavigation<MainTabView,MainTabViewModel>();
             containerRegistry.RegisterForNavigation<ProductView,ProductViewModel>();
             containerRegistry.Register<IWorkCore, VisionBaseWorkflow>();
-
-
+            containerRegistry.RegisterForNavigation<CarmerView, CarmerViewModel>();
         }
     }
 }

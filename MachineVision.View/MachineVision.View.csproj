@@ -545,8 +545,12 @@
     </Compile>
     <Compile Include="Services\VisionBaseWorkflow.cs" />
     <Compile Include="Services\IWorkCore.cs" />
+    <Compile Include="ViewModels\CarmerViewModel.cs" />
     <Compile Include="ViewModels\MainTabViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="Views\CarmerView.xaml.cs">
+      <DependentUpon>CarmerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainTabView.xaml.cs">
       <DependentUpon>MainTabView.xaml</DependentUpon>
     </Compile>
@@ -566,6 +570,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Views\CarmerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

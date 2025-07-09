@@ -1,5 +1,5 @@
 ﻿using MachineVision.Core.Extensions;
-using MachineVision.Core.Logs;
+using MachineVision.Core.Logger;
 using MachineVision.Core.Models;
 using MachineVision.Core.Services.DataBase;
 using MachineVision.Core.ViewModels;
@@ -21,14 +21,14 @@ namespace MachineVision.View.ViewModels
 
         private readonly ProductService productService;
         public  IWorkCore VisionWork { get; }
-        public ILogService LogService { get; }
+        public ILoggerService LogService { get; }
 
         /// <summary>
         /// 缺陷检测图片
         /// </summary>
         public ObservableCollection<IVmModule> DefectImages { get; set; } = new ObservableCollection<IVmModule>();
 
-        public MainTabViewModel(ProductService productService, IWorkCore visionWork, ILogService logService)
+        public MainTabViewModel(ProductService productService, IWorkCore visionWork, ILoggerService logService)
         {
             this.productService = productService;
             this.VisionWork = visionWork;

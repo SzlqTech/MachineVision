@@ -30,8 +30,8 @@ namespace MachineVision
         protected override void RegisterTypes(IContainerRegistry service)
         {
             service.RegisterForNavigation<MainWindow, MainWindowViewModel>();
-            service.AddService();
-            service.AddAutoMapper();
+            service.RegisterForNavigation<SettingsView, SettingsViewModel>();
+            service.AddService();      
         }
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
