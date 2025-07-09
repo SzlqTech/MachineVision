@@ -42,6 +42,9 @@ namespace MachineVision
 
         protected override void OnInitialized()
         {
+            KillProcess("VisionMasterServerApp");
+            KillProcess("VisionMaster");
+            KillProcess("VmModuleProxy.exe");
             InitNlog();
             RegisterEvents();
             base.OnInitialized();
@@ -175,5 +178,27 @@ namespace MachineVision
 
             //记录日志
         }
+
+        #region 关闭Vm
+        void KillProcess(string strKillName)
+        {
+            foreach (var P in System.Diagnostics.Process.GetProcesses())
+            {
+                if (P.ProcessName.Contains(strKillName))
+                {
+                    try
+                    {
+                        P.Kill();
+                        P.WaitForExit();
+                    }
+                    catch (Exception e)
+                    {
+
+                        throw e;
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

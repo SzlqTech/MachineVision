@@ -26,20 +26,20 @@ namespace MachineVision.Core.Services
             {
                  new NavigationItem("","Firework","流程管理","",new ObservableCollection<NavigationItem>()
                  {
-                      new NavigationItem("Sitemap","MainTab", "主页面","MainTabView"),
+                      new NavigationItem("home","MainTab", "主页面","MainTabView"),
 
                  }),
 
                  new NavigationItem("","Config","配置管理","",new ObservableCollection<NavigationItem>()
                  {              
-                      new NavigationItem("Application","Product", "产品管理","ProductView"),
+                      new NavigationItem("product","Product", "产品管理","ProductView"),
                      
                  }),
                 
             }));
 
-            Items.Add(new NavigationItem("Sitemap", "MainTab", "主页面", "MainTabView"));
-            Items.Add(new NavigationItem("Application", "Product", "产品管理", "ProductView"));
+            Items.Add(new NavigationItem("", "MainTab", "主页面", "MainTabView"));
+            Items.Add(new NavigationItem("", "Product", "产品管理", "ProductView"));
          
         }
 
