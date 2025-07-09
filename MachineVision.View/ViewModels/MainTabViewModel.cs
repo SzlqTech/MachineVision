@@ -4,9 +4,9 @@ using MachineVision.Core.Models;
 using MachineVision.Core.Services.DataBase;
 using MachineVision.Core.ViewModels;
 using MachineVision.View.Services;
+using Newtonsoft.Json;
 using Prism.Commands;
 using Prism.Regions;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -20,6 +20,8 @@ namespace MachineVision.View.ViewModels
         private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
 
         private readonly ProductService productService;
+        private readonly AppSettingService appService;
+
         public  IWorkCore VisionWork { get; }
         public ILoggerService LogService { get; }
 
@@ -28,11 +30,12 @@ namespace MachineVision.View.ViewModels
         /// </summary>
         public ObservableCollection<IVmModule> DefectImages { get; set; } = new ObservableCollection<IVmModule>();
 
-        public MainTabViewModel(ProductService productService, IWorkCore visionWork, ILoggerService logService)
+        public MainTabViewModel(ProductService productService, IWorkCore visionWork, ILoggerService logService, AppSettingService appService)
         {
             this.productService = productService;
             this.VisionWork = visionWork;
             LogService = logService;
+            this.appService = appService;
             ExcuteCommand = new DelegateCommand<string>(Excute);
             visionWork.DataResultReceived -= VisionWork_DataResultReceived;
             visionWork.DataResultReceived += VisionWork_DataResultReceived;
@@ -80,7 +83,11 @@ namespace MachineVision.View.ViewModels
 
         private async Task Load()
         {
-            if (SelectProduct == null || string.IsNullOrEmpty(SelectProduct.Path)) return;        
+            if (SelectProduct == null || string.IsNullOrEmpty(SelectProduct.Path))
+            {
+                SendMessage("请选择产品！");
+                return;
+            }    
             try
             {            
                 if(await VisionWork.Load(SelectProduct?.Path))
@@ -131,8 +138,6 @@ namespace MachineVision.View.ViewModels
 
         public bool IsEnable { get; set; } = true;
 
-        public ObservableCollection<ProductModel> Products { get; set; }
-
         public ProductModel SelectProduct { get;set; }
 
         public IVmModule ImageSource { get; set; }
@@ -143,10 +148,19 @@ namespace MachineVision.View.ViewModels
 
 
         public override async void OnNavigatedTo(NavigationContext navigationContext)
-        {
-            Products = new ObservableCollection<ProductModel>();
+        {      
             List<ProductModel> products =await productService.GetListAsync();
-            Products.AddRange(products);
+            var appSetting = await appService.GetSettingAsync();
+            var productList = await productService.GetListAsync();
+            if (appSetting == null)
+                return;
+            else
+            {
+                var Parameter = JsonConvert.DeserializeObject<AppSettingParameter>(appSetting.Content);
+                SelectProduct = productList?.Find(s => s.Name == Parameter.ProductCode) ?? new ProductModel();
+            }
+               
+          
         }
     }
 }

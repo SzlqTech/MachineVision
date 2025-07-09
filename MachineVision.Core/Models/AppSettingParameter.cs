@@ -10,6 +10,8 @@ namespace MachineVision.Core.Models
     {
         private string deviceType;
         private string cameraType;
+        private string productCode;
+        private string productName;
         private int id;
         
 
@@ -38,6 +40,18 @@ namespace MachineVision.Core.Models
         {
             get { return cameraType; }
             set { cameraType = value; RaisePropertyChanged(); }
+        }
+
+        public string ProductCode
+        {
+            get { return productCode; }
+            set { productCode = value; RaisePropertyChanged(); }
+        }
+
+        public string ProductName
+        {
+            get { return productName; }
+            set { productName = value; RaisePropertyChanged(); }
         }
     }
 }

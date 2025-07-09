@@ -5,9 +5,182 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MachineVision.View.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
+    xmlns:wfCtrl="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+    d:DesignHeight="800"
+    d:DesignWidth="1280"
     Background="{DynamicResource MaterialDesignCardBackground}"
     mc:Ignorable="d">
-    <Grid />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid>
+                <ComboBox
+                    Grid.ColumnSpan="2"
+                    Height="23"
+                    Margin="12,10,184,0"
+                    VerticalAlignment="Top"
+                    ItemsSource="{Binding DeviceList}" />
+            </Grid>
+            <WindowsFormsHost
+                x:Name="DisplayWindow"
+                Grid.Row="1"
+                Margin="10"
+                IsEnabled="True">
+                <wfCtrl:PictureBox x:Name="displayArea" />
+            </WindowsFormsHost>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid>
+                <Button
+                    Margin="10"
+                    VerticalAlignment="Top"
+                    Command="{Binding ExcuteCommand}"
+                    CommandParameter="FindDevice"
+                    Content="查找设备" />
+            </Grid>
+            <DockPanel
+                Grid.Row="1"
+                Margin="10"
+                LastChildFill="False">
+                <StackPanel
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="0,0,10,0"
+                        Command="{Binding ExcuteCommand}"
+                        CommandParameter="OpenDevice"
+                        Content="打开设备" />
+                    <Button
+                        Command="{Binding ExcuteCommand}"
+                        CommandParameter="CloseDevice"
+                        Content="关闭设备" />
+                </StackPanel>
+                <StackPanel
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+                    <RadioButton Margin="0,0,10,0" Content="连续模式" />
+                    <RadioButton x:Name="bnTriggerMode" Content="触发模式" />
+                </StackPanel>
+                <StackPanel
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="0,0,10,0"
+                        Command="{Binding ExcuteCommand}"
+                        CommandParameter="StartGrab"
+                        Content="开始采集" />
+                    <Button
+                        Command="{Binding ExcuteCommand}"
+                        CommandParameter="StopGrab"
+                        Content="停止采集" />
+                </StackPanel>
+                <StackPanel
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+                    <CheckBox Margin="0,0,10,0" Content="软触发" />
+                    <Button
+                        Margin="10,0"
+                        Command="{Binding ExcuteCommand}"
+                        CommandParameter="TriggerExec"
+                        Content="软触发一次" />
+                </StackPanel>
+                <StackPanel
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Orientation="Vertical">
+                    <StackPanel
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+                        <Label
+                            x:Name="labelExposureTime"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Height="24"
+                            VerticalAlignment="Bottom"
+                            Content="曝光" />
+                        <TextBox MinWidth="120" Margin="10,0" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+                        <Label
+                            Height="24"
+                            VerticalAlignment="Bottom"
+                            Content="增益" />
+                        <TextBox MinWidth="120" Margin="10,0" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+                        <Label
+                            Height="24"
+                            VerticalAlignment="Bottom"
+                            Content="帧率" />
+                        <TextBox MinWidth="120" Margin="10,0" />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="10"
+                        HorizontalAlignment="Center"
+                        DockPanel.Dock="Top"
+                        Orientation="Horizontal">
+                        <Label
+                            Height="24"
+                            VerticalAlignment="Bottom"
+                            Content="像素格式" />
+                        <TextBox MinWidth="120" Margin="10,0" />
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel
+                    Margin="10"
+                    HorizontalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+                    <Button
+                        Margin="0,0,10,0"
+                        Command="{Binding ExcuteCommand}"
+                        CommandParameter="GetParam"
+                        Content="获取参数" />
+                    <Button
+                        Command="{Binding ExcuteCommand}"
+                        CommandParameter="SetParam"
+                        Content="设置参数" />
+                </StackPanel>
+            </DockPanel>
+        </Grid>
+
+
+
+
+
+
+
+    </Grid>
 </UserControl>

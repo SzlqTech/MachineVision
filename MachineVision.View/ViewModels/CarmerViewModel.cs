@@ -9,5 +9,9 @@ namespace MachineVision.View.ViewModels
 {
     public class CarmerViewModel: NavigationViewMdoel
     {
+        public CarmerViewModel()
+        {
+            
+        }
     }
 }

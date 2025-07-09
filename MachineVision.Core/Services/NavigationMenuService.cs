@@ -33,7 +33,8 @@ namespace MachineVision.Core.Services
                  new NavigationItem("","Config","配置管理","",new ObservableCollection<NavigationItem>()
                  {              
                       new NavigationItem("product","Product", "产品管理","ProductView"),
-                     
+                      new NavigationItem("camera","Camera", "相机管理","CarmerView"),
+
                  }),
                 
             }));

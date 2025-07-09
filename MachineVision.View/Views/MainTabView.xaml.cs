@@ -25,7 +25,24 @@ namespace MachineVision.View.Views
     {
         public MainTabView()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                VM.PlatformSDKCS.VmException vmEx = VM.Core.VmSolution.GetVmException(ex);
+                if (null != vmEx)
+                {
+                    string strMsg = "InitControl failed. Error Code: " + Convert.ToString(vmEx.errorCode, 16);
+                    MessageBox.Show(strMsg);
+                }
+                else
+                {
+                    return;
+                }
+            }
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

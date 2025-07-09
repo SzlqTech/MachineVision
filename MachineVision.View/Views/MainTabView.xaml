@@ -148,13 +148,17 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Margin="10" Orientation="Horizontal">
-                        <ComboBox
+                        <!--<ComboBox
                             MinWidth="150"
                             DisplayMemberPath="Name"
                             IsEnabled="{Binding IsEnable}"
                             ItemsSource="{Binding Products}"
                             SelectedItem="{Binding SelectProduct}"
-                            SelectedValuePath="Code" />
+                            SelectedValuePath="Code" />-->
+                        <TextBlock  Margin="10">
+                            <Run Text="当前产品：" />
+                            <Run Text="{Binding SelectProduct.Name}" />
+                        </TextBlock>
                     </StackPanel>
                     <DockPanel
                         Grid.Row="1"

@@ -159,6 +159,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\AppConstant.cs" />
     <Compile Include="Entity\AppSetting.cs" />
     <Compile Include="Models\AppSettingParameter.cs" />
     <Compile Include="Entity\BaseEntity.cs" />
