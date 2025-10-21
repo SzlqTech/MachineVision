@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="427a621a-2c03-46d2-83f5-c78e5f6b7dce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SN_MoveInOutService.disco" MetadataType="Disco" ID="288d566b-e228-419f-b673-f88bea7ee8e2" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?disco" />
+    <MetadataFile FileName="SN_MoveInOutService.xsd" MetadataType="Schema" ID="ace7e4ad-6cc3-41f6-ae38-a0eecbea291d" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SN_MoveInOutService1.xsd" MetadataType="Schema" ID="8b59d63d-0621-48a0-af2e-c66ebf8900cb" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SN_MoveInOutService2.xsd" MetadataType="Schema" ID="fc77d982-9da1-4193-ae0c-f4aff1c8b247" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd3" />
+    <MetadataFile FileName="SN_MoveInOutService3.xsd" MetadataType="Schema" ID="d4b2e6e1-52c2-4a0f-98b6-728f57645265" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SN_MoveInOutService4.xsd" MetadataType="Schema" ID="23fa9b71-b76f-4438-99ba-6488c079b31d" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd5" />
+    <MetadataFile FileName="SN_MoveInOutService5.xsd" MetadataType="Schema" ID="25b20763-0d97-4853-bff6-8615bac70db4" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SN_MoveInOutService.wsdl" MetadataType="Wsdl" ID="42d70123-5ed1-4725-8f2a-0ed1b1bcfb75" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

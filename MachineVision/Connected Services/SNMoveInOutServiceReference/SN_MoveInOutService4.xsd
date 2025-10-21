@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfHistoryDataReportDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryDataReportDto" nillable="true" type="tns:HistoryDataReportDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryDataReportDto" nillable="true" type="tns:ArrayOfHistoryDataReportDto" />
+  <xs:complexType name="HistoryDataReportDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfHistoryDataReportItem" />
+      <xs:element minOccurs="0" name="Process" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryDataReportDto" nillable="true" type="tns:HistoryDataReportDto" />
+  <xs:complexType name="ArrayOfHistoryDataReportItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryDataReportItem" nillable="true" type="tns:HistoryDataReportItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHistoryDataReportItem" nillable="true" type="tns:ArrayOfHistoryDataReportItem" />
+  <xs:complexType name="HistoryDataReportItem">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GlueName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlueRemark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlueSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LotNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialVer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PCBAId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PCBAStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PNSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StockRemark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubLot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierLot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminalName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToolId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrackOutDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UseQty" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="VendorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WOType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WOTypeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WoId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HistoryDataReportItem" nillable="true" type="tns:HistoryDataReportItem" />
+  <xs:complexType name="RequestPanelInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChipIDList" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsIgnoreCheckSubLot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsUnbind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PanelID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToolID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="defectDetails" nillable="true" type="tns:ArrayOfSNDefectItemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestPanelInfo" nillable="true" type="tns:RequestPanelInfo" />
+  <xs:complexType name="ArrayOfSNDefectItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SNDefectItemDto" nillable="true" type="tns:SNDefectItemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSNDefectItemDto" nillable="true" type="tns:ArrayOfSNDefectItemDto" />
+  <xs:complexType name="SNDefectItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectActualOp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectActualOpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectActualUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectGroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectQty" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IsPreScrap" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsScrap" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ResponsibleUnit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNDefectItemDto" nillable="true" type="tns:SNDefectItemDto" />
+  <xs:complexType name="SNInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDetails" nillable="true" type="tns:ArrayOfSNInfoDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNInfo" nillable="true" type="tns:SNInfo" />
+  <xs:complexType name="ArrayOfSNInfoDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SNInfoDetails" nillable="true" type="tns:SNInfoDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSNInfoDetails" nillable="true" type="tns:ArrayOfSNInfoDetails" />
+  <xs:complexType name="SNInfoDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BI_Mode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectCode1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefectGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRepaired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsRework" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShopOrder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminalName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNInfoDetails" nillable="true" type="tns:SNInfoDetails" />
+  <xs:complexType name="WaferComponentInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNDetails" nillable="true" type="tns:ArrayOfSNDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WaferComponentInfo" nillable="true" type="tns:WaferComponentInfo" />
+  <xs:complexType name="ArrayOfSNDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SNDetails" nillable="true" type="tns:SNDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSNDetails" nillable="true" type="tns:ArrayOfSNDetails" />
+  <xs:complexType name="SNDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BIRemark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ComponentLotNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNDetails" nillable="true" type="tns:SNDetails" />
+  <xs:complexType name="Test2DDataRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Deg1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deg2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deg3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deg4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deg5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deg6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deg7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deg8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Process" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Testtime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Userid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkStation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="X8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Y8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Z8" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Test2DDataRequest" nillable="true" type="tns:Test2DDataRequest" />
+  <xs:complexType name="ArrayOfLaserSNInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LaserSNInfo" nillable="true" type="tns:LaserSNInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLaserSNInfo" nillable="true" type="tns:ArrayOfLaserSNInfo" />
+  <xs:complexType name="LaserSNInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COMPUTER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MATERIAL_SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SHOPORDER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LaserSNInfo" nillable="true" type="tns:LaserSNInfo" />
+  <xs:complexType name="GetLaserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EInfos" nillable="true" type="tns:ArrayOfErrInfos" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetLaserInfo" nillable="true" type="tns:GetLaserInfo" />
+  <xs:complexType name="ArrayOfErrInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrInfos" nillable="true" type="tns:ErrInfos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrInfos" nillable="true" type="tns:ArrayOfErrInfos" />
+  <xs:complexType name="ErrInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrInfo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrInfos" nillable="true" type="tns:ErrInfos" />
+  <xs:complexType name="DefectReason">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DefectDetails" nillable="true" type="tns:ArrayOfDefectDetails" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DefectReason" nillable="true" type="tns:DefectReason" />
+  <xs:complexType name="ArrayOfDefectDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DefectDetails" nillable="true" type="tns:DefectDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDefectDetails" nillable="true" type="tns:ArrayOfDefectDetails" />
+  <xs:complexType name="DefectDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Depat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REASONCODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REASONDESC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REASONGROUPID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="REASONGROUPNAME" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DefectDetails" nillable="true" type="tns:DefectDetails" />
+  <xs:complexType name="MaterialSnResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ResponseInfos" nillable="true" type="tns:ArrayOfResponseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaterialSnResponse" nillable="true" type="tns:MaterialSnResponse" />
+  <xs:complexType name="ArrayOfResponseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResponseInfo" nillable="true" type="tns:ResponseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResponseInfo" nillable="true" type="tns:ArrayOfResponseInfo" />
+  <xs:complexType name="ResponseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OUTTIME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseInfo" nillable="true" type="tns:ResponseInfo" />
+  <xs:complexType name="ReturnMaterialInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RMaterialDetails" nillable="true" type="tns:ArrayOfReturnMaterialDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnMaterialInfo" nillable="true" type="tns:ReturnMaterialInfo" />
+  <xs:complexType name="ArrayOfReturnMaterialDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReturnMaterialDetails" nillable="true" type="tns:ReturnMaterialDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReturnMaterialDetails" nillable="true" type="tns:ArrayOfReturnMaterialDetails" />
+  <xs:complexType name="ReturnMaterialDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialVer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QTY" type="xs:double" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReturnMaterialDetails" nillable="true" type="tns:ReturnMaterialDetails" />
+  <xs:complexType name="ArrayOfBiCocAccDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BiCocAccDto" nillable="true" type="tns:BiCocAccDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBiCocAccDto" nillable="true" type="tns:ArrayOfBiCocAccDto" />
+  <xs:complexType name="BiCocAccDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrawerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_I_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Equipment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_I_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OperatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PD_P_mW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Power_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recipe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reverse_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestItemIndex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wafer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BiCocAccDto" nillable="true" type="tns:BiCocAccDto" />
+  <xs:complexType name="ArrayOfBiCocOpsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BiCocOpsDto" nillable="true" type="tns:BiCocOpsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBiCocOpsDto" nillable="true" type="tns:ArrayOfBiCocOpsDto" />
+  <xs:complexType name="BiCocOpsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrawerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_I_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Equipment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_I_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OperatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recipe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestItemIndex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wafer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BiCocOpsDto" nillable="true" type="tns:BiCocOpsDto" />
+  <xs:complexType name="ArrayOfBiCocDataprocessingDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BiCocDataprocessingDto" nillable="true" type="tns:BiCocDataprocessingDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBiCocDataprocessingDto" nillable="true" type="tns:ArrayOfBiCocDataprocessingDto" />
+  <xs:complexType name="BiCocDataprocessingDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BAPower" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BI_System_ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CarrierID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Class" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Class2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DCER_Class" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DC_ER_EA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_DCER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_EA_I_V" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_EA_V_I" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_ITH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_Iop" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_Power" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_SE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Delta_Vf" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Diff_ITH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_Current_Slope" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_Failure_Mode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_I_V" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_TestResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_V_I" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixturePosition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ITH" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iop" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kink" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kink_Current_Point" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Kink_Voltage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_Failure_Mode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_TestResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OperatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Overall_Failure_Mode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Overall_Result" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="P_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="P_max" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecipeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recipe_PN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SystemVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestStage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Time" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vf_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wafer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BiCocDataprocessingDto" nillable="true" type="tns:BiCocDataprocessingDto" />
+  <xs:complexType name="ArrayOfBiCocLivDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BiCocLivDto" nillable="true" type="tns:BiCocLivDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBiCocLivDto" nillable="true" type="tns:ArrayOfBiCocLivDto" />
+  <xs:complexType name="BiCocLivDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrawerNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_I_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EA_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Equipment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FixtureNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IndexSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_I_mA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LD_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LIV_LD_EA" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="OperatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PD_P_mW" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Position" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Power_Pass_Fail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recipe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reverse_V_mV" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Temperature_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestItemIndex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wafer" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BiCocLivDto" nillable="true" type="tns:BiCocLivDto" />
+  <xs:complexType name="MaterialPrintResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialPrintDetail" nillable="true" type="tns:MaterialPrintDto" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaterialPrintResponse" nillable="true" type="tns:MaterialPrintResponse" />
+  <xs:complexType name="MaterialPrintDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LotNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupNO" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MaterialPrintDto" nillable="true" type="tns:MaterialPrintDto" />
+  <xs:complexType name="PrintCord">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ESERIALNO" type="xs:int" />
+      <xs:element minOccurs="0" name="INTERNALNO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LM_TIME" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LM_USER" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LOT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MATERIAL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MODEL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PART_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PRINTMODE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QTY" type="xs:int" />
+      <xs:element minOccurs="0" name="RPRINT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RPRINTCOUNT" type="xs:int" />
+      <xs:element minOccurs="0" name="SSERIALNO" type="xs:int" />
+      <xs:element minOccurs="0" name="SUPPLIER_NO" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="USEDQTY" type="xs:int" />
+      <xs:element minOccurs="0" name="WOStartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WO_ID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrintCord" nillable="true" type="tns:PrintCord" />
+  <xs:complexType name="TestSpecInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="testSpecDetails" nillable="true" type="tns:ArrayOfTestSpecDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestSpecInfo" nillable="true" type="tns:TestSpecInfo" />
+  <xs:complexType name="ArrayOfTestSpecDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TestSpecDetails" nillable="true" type="tns:TestSpecDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTestSpecDetails" nillable="true" type="tns:ArrayOfTestSpecDetails" />
+  <xs:complexType name="TestSpecDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LowerLimit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MatVer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParameterName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpperLimit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestSpecDetails" nillable="true" type="tns:TestSpecDetails" />
+  <xs:complexType name="SeqMaterialPrintTResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrintList" nillable="true" type="tns:ArrayOfTPrintCord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SeqMaterialPrintTResponse" nillable="true" type="tns:SeqMaterialPrintTResponse" />
+  <xs:complexType name="ArrayOfTPrintCord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TPrintCord" nillable="true" type="tns:TPrintCord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTPrintCord" nillable="true" type="tns:ArrayOfTPrintCord" />
+  <xs:complexType name="TPrintCord">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PrintCord">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ASSIGN_ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IS_LATEST" type="xs:int" />
+          <xs:element minOccurs="0" name="IS_PRINT" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TPrintCord" nillable="true" type="tns:TPrintCord" />
+  <xs:complexType name="SeqMaterialPrintResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrintList" nillable="true" type="tns:ArrayOfPrintCord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SeqMaterialPrintResponse" nillable="true" type="tns:SeqMaterialPrintResponse" />
+  <xs:complexType name="ArrayOfPrintCord">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrintCord" nillable="true" type="tns:PrintCord" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrintCord" nillable="true" type="tns:ArrayOfPrintCord" />
+  <xs:complexType name="SNResultInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EInfos" nillable="true" type="tns:ArrayOfErrInfos" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNResultInfo" nillable="true" type="tns:SNResultInfo" />
+  <xs:complexType name="WoResultInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Infos" nillable="true" type="tns:ArrayOfWoAndPartNoInfo" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WoResultInfo" nillable="true" type="tns:WoResultInfo" />
+  <xs:complexType name="ArrayOfWoAndPartNoInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WoAndPartNoInfo" nillable="true" type="tns:WoAndPartNoInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWoAndPartNoInfo" nillable="true" type="tns:ArrayOfWoAndPartNoInfo" />
+  <xs:complexType name="WoAndPartNoInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PartNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WoId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WoAndPartNoInfo" nillable="true" type="tns:WoAndPartNoInfo" />
+  <xs:complexType name="ArrayOfBiCarrierIdSNBindDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BiCarrierIdSNBindDto" nillable="true" type="tns:BiCarrierIdSNBindDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBiCarrierIdSNBindDto" nillable="true" type="tns:ArrayOfBiCarrierIdSNBindDto" />
+  <xs:complexType name="BiCarrierIdSNBindDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarrierId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChannelPosition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Slot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subsn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SupplierLot" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BiCarrierIdSNBindDto" nillable="true" type="tns:BiCarrierIdSNBindDto" />
+  <xs:complexType name="ArrayOfBiCarrierDrawBindDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BiCarrierDrawBindDto" nillable="true" type="tns:BiCarrierDrawBindDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBiCarrierDrawBindDto" nillable="true" type="tns:ArrayOfBiCarrierDrawBindDto" />
+  <xs:complexType name="BiCarrierDrawBindDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarrierId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrawerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MachineId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BiCarrierDrawBindDto" nillable="true" type="tns:BiCarrierDrawBindDto" />
+  <xs:complexType name="SNWoRelatedInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNWoInfo" nillable="true" type="tns:SNWoInfoDto" />
+      <xs:element minOccurs="0" name="lstErrs" nillable="true" type="tns:ArrayOfErrInfos" />
+      <xs:element minOccurs="0" name="lstSNDetails" nillable="true" type="tns:ArrayOfSNDetailsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNWoRelatedInfo" nillable="true" type="tns:SNWoRelatedInfo" />
+  <xs:complexType name="SNWoInfoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BakingConditions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BatchNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Glue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitialBatchNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastOpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextOpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlacementCycle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlacementStartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qty" type="xs:int" />
+      <xs:element minOccurs="0" name="RemainTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RouteName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WoId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNWoInfoDto" nillable="true" type="tns:SNWoInfoDto" />
+  <xs:complexType name="ArrayOfSNDetailsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SNDetailsDto" nillable="true" type="tns:SNDetailsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSNDetailsDto" nillable="true" type="tns:ArrayOfSNDetailsDto" />
+  <xs:complexType name="SNDetailsDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="STATUS" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNDetailsDto" nillable="true" type="tns:SNDetailsDto" />
+  <xs:complexType name="GlueTKACLogDto">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:GlueTKACLogModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GlueTKACLogDto" nillable="true" type="tns:GlueTKACLogDto" />
+  <xs:complexType name="GlueTKACLogModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GlueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlueName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GlueTKACLogModel" nillable="true" type="tns:GlueTKACLogModel" />
+  <xs:complexType name="SNWoRelatedInfoExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNWoInfo" nillable="true" type="tns:SNWoInfoExt" />
+      <xs:element minOccurs="0" name="lstErrs" nillable="true" type="tns:ArrayOfErrInfos" />
+      <xs:element minOccurs="0" name="lstSNDetails" nillable="true" type="tns:ArrayOfSNDetailsDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNWoRelatedInfoExt" nillable="true" type="tns:SNWoRelatedInfoExt" />
+  <xs:complexType name="SNWoInfoExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BakingConditions" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BatchNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Glue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitialBatchNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NextOpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlacementCycle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlacementStartTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qty" type="xs:int" />
+      <xs:element minOccurs="0" name="RouteName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WoId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNWoInfoExt" nillable="true" type="tns:SNWoInfoExt" />
+  <xs:complexType name="OpTerminalInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="terminalInfo" nillable="true" type="tns:ArrayOfOpTerminalDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpTerminalInfo" nillable="true" type="tns:OpTerminalInfo" />
+  <xs:complexType name="ArrayOfOpTerminalDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OpTerminalDetails" nillable="true" type="tns:OpTerminalDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOpTerminalDetails" nillable="true" type="tns:ArrayOfOpTerminalDetails" />
+  <xs:complexType name="OpTerminalDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OPName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminalName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpTerminalDetails" nillable="true" type="tns:OpTerminalDetails" />
+  <xs:complexType name="ParamterTypeInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="param" nillable="true" type="tns:ArrayOfParameterCodeExt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParamterTypeInfo" nillable="true" type="tns:ParamterTypeInfo" />
+  <xs:complexType name="ArrayOfParameterCodeExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ParameterCodeExt" nillable="true" type="tns:ParameterCodeExt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfParameterCodeExt" nillable="true" type="tns:ArrayOfParameterCodeExt" />
+  <xs:complexType name="ParameterCodeExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParameterCodeExt" nillable="true" type="tns:ParameterCodeExt" />
+  <xs:complexType name="ArrayOfOperationExtDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OperationExtDto" nillable="true" type="tns:OperationExtDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOperationExtDto" nillable="true" type="tns:ArrayOfOperationExtDto" />
+  <xs:complexType name="OperationExtDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEnable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LmUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpKind" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lang" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OperationExtDto" nillable="true" type="tns:OperationExtDto" />
+  <xs:complexType name="CBChannelInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChannelInfos" nillable="true" type="tns:ArrayOfCbChannelInfos" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CBChannelInfo" nillable="true" type="tns:CBChannelInfo" />
+  <xs:complexType name="ArrayOfCbChannelInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CbChannelInfos" nillable="true" type="tns:CbChannelInfos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCbChannelInfos" nillable="true" type="tns:ArrayOfCbChannelInfos" />
+  <xs:complexType name="CbChannelInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Channel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InitialLetter" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CbChannelInfos" nillable="true" type="tns:CbChannelInfos" />
+  <xs:complexType name="WoSNInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SNInfos" nillable="true" type="tns:ArrayOfWoLotInfos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WoSNInfo" nillable="true" type="tns:WoSNInfo" />
+  <xs:complexType name="ArrayOfWoLotInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WoLotInfos" nillable="true" type="tns:WoLotInfos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWoLotInfos" nillable="true" type="tns:ArrayOfWoLotInfos" />
+  <xs:complexType name="WoLotInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PartNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qty" type="xs:int" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WoLotInfos" nillable="true" type="tns:WoLotInfos" />
+  <xs:complexType name="GenerateLotRequestDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PnSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qty" type="xs:int" />
+      <xs:element minOccurs="0" name="SuffixLength" type="xs:int" />
+      <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GenerateLotRequestDto" nillable="true" type="tns:GenerateLotRequestDto" />
+  <xs:complexType name="SNBaseInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Detials" nillable="true" type="tns:ArrayOfSubSNDetails" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNBaseInfo" nillable="true" type="tns:SNBaseInfo" />
+  <xs:complexType name="ArrayOfSubSNDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubSNDetails" nillable="true" type="tns:SubSNDetails" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubSNDetails" nillable="true" type="tns:ArrayOfSubSNDetails" />
+  <xs:complexType name="SubSNDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Process" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XPSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubSNDetails" nillable="true" type="tns:SubSNDetails" />
+  <xs:complexType name="SNCarrierInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Details" nillable="true" type="tns:ArrayOfCarrierAndSNInfo" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNCarrierInfo" nillable="true" type="tns:SNCarrierInfo" />
+  <xs:complexType name="ArrayOfCarrierAndSNInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CarrierAndSNInfo" nillable="true" type="tns:CarrierAndSNInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCarrierAndSNInfo" nillable="true" type="tns:ArrayOfCarrierAndSNInfo" />
+  <xs:complexType name="CarrierAndSNInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarrierNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrawerNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SubSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CarrierAndSNInfo" nillable="true" type="tns:CarrierAndSNInfo" />
+</xs:schema>
