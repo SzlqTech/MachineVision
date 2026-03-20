@@ -29,6 +29,8 @@
     <MetadataFile FileName="SN_MoveInOutService3.xsd" MetadataType="Schema" ID="d4b2e6e1-52c2-4a0f-98b6-728f57645265" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd2" />
     <MetadataFile FileName="SN_MoveInOutService4.xsd" MetadataType="Schema" ID="23fa9b71-b76f-4438-99ba-6488c079b31d" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd5" />
     <MetadataFile FileName="SN_MoveInOutService5.xsd" MetadataType="Schema" ID="25b20763-0d97-4853-bff6-8615bac70db4" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd4" />
+    <MetadataFile FileName="SN_MoveInOutService6.xsd" MetadataType="Schema" ID="f61f0dba-afd6-43b8-b960-e8768cb6f77a" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd7" />
+    <MetadataFile FileName="SN_MoveInOutService61.xsd" MetadataType="Schema" ID="122e79c2-751d-4c7f-8d5b-f22321894aef" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd6" />
     <MetadataFile FileName="SN_MoveInOutService.wsdl" MetadataType="Wsdl" ID="42d70123-5ed1-4725-8f2a-0ed1b1bcfb75" SourceId="1" SourceUrl="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?wsdl" />
   </Metadata>
   <Extensions>

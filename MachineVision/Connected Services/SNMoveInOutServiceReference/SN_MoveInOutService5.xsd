@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="DataSet" nillable="true">
-    <xs:complexType>
-      <xs:annotation>
-        <xs:appinfo>
-          <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
-        </xs:appinfo>
-      </xs:annotation>
-      <xs:sequence>
-        <xs:element ref="xs:schema" />
-        <xs:any />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfFirstArticleRelationConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FirstArticleRelationConfig" nillable="true" type="tns:FirstArticleRelationConfig" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFirstArticleRelationConfig" nillable="true" type="tns:ArrayOfFirstArticleRelationConfig" />
+  <xs:complexType name="FirstArticleRelationConfig">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreateUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EquipmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ForemanUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ManufactureUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Op" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QcUser" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FirstArticleRelationConfig" nillable="true" type="tns:FirstArticleRelationConfig" />
 </xs:schema>
