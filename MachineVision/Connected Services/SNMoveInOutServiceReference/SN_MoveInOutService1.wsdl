@@ -2,16 +2,23 @@
 <wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="SN_MoveInOutService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd1" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" />
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" />
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.OffLineContact" />
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd7" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd1" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.OffLineContact" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd8" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="ISN_MoveInOutService_BurnInMoveOutByLot_InputMessage">
+    <wsdl:part name="parameters" element="tns:BurnInMoveOutByLot" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_BurnInMoveOutByLot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BurnInMoveOutByLotResponse" />
+  </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_SNMoveInByBatch_InputMessage">
     <wsdl:part name="parameters" element="tns:SNMoveInByBatch" />
   </wsdl:message>
@@ -42,6 +49,24 @@
   <wsdl:message name="ISN_MoveInOutService_GetGulyApplyInfo_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGulyApplyInfoResponse" />
   </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetGulyManageInfoByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGulyManageInfoByName" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetGulyManageInfoByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGulyManageInfoByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetGlueWipSignageByApplyUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGlueWipSignageByApplyUser" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetGlueWipSignageByApplyUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGlueWipSignageByApplyUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_RejectGulyApplyByDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejectGulyApplyByDevice" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_RejectGulyApplyByDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejectGulyApplyByDeviceResponse" />
+  </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_GlueRecover_InputMessage">
     <wsdl:part name="parameters" element="tns:GlueRecover" />
   </wsdl:message>
@@ -53,6 +78,12 @@
   </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_GlueTaking_OutputMessage">
     <wsdl:part name="parameters" element="tns:GlueTakingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GlueTakingForNewEquipment_InputMessage">
+    <wsdl:part name="parameters" element="tns:GlueTakingForNewEquipment" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GlueTakingForNewEquipment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GlueTakingForNewEquipmentResponse" />
   </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_GlueIce_InputMessage">
     <wsdl:part name="parameters" element="tns:GlueIce" />
@@ -78,6 +109,12 @@
   <wsdl:message name="ISN_MoveInOutService_BindingGTToWbToolBySNlistForNew_OutputMessage">
     <wsdl:part name="parameters" element="tns:BindingGTToWbToolBySNlistForNewResponse" />
   </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetSNReworkMaterial_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSNReworkMaterial" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetSNReworkMaterial_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSNReworkMaterialResponse" />
+  </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_GetFirstArticleRelationConfigList_InputMessage">
     <wsdl:part name="parameters" element="tns:GetFirstArticleRelationConfigList" />
   </wsdl:message>
@@ -89,6 +126,30 @@
   </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_AddFirstArticleApproval_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddFirstArticleApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_UploadLineAutoInspectionRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:UploadLineAutoInspectionRecord" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_UploadLineAutoInspectionRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UploadLineAutoInspectionRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetInspectionInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInspectionInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetInspectionInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInspectionInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetEquipmentOutputInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentOutputInfo" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetEquipmentOutputInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEquipmentOutputInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetLotNumberInfoBySNAndOP_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLotNumberInfoBySNAndOP" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_GetLotNumberInfoBySNAndOP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLotNumberInfoBySNAndOPResponse" />
   </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_ICORD_SN_InputMessage">
     <wsdl:part name="parameters" element="tns:ICORD_SN" />
@@ -624,6 +685,12 @@
   <wsdl:message name="ISN_MoveInOutService_MaterialAutoAssignLot_OutputMessage">
     <wsdl:part name="parameters" element="tns:MaterialAutoAssignLotResponse" />
   </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_MultiBatchAssign_InputMessage">
+    <wsdl:part name="parameters" element="tns:MultiBatchAssign" />
+  </wsdl:message>
+  <wsdl:message name="ISN_MoveInOutService_MultiBatchAssign_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MultiBatchAssignResponse" />
+  </wsdl:message>
   <wsdl:message name="ISN_MoveInOutService_PrintAssignedMaterialLabel_InputMessage">
     <wsdl:part name="parameters" element="tns:PrintAssignedMaterialLabel" />
   </wsdl:message>
@@ -852,13 +919,11 @@
   <wsdl:message name="ISN_MoveInOutService_BurnInMoveInByLot_OutputMessage">
     <wsdl:part name="parameters" element="tns:BurnInMoveInByLotResponse" />
   </wsdl:message>
-  <wsdl:message name="ISN_MoveInOutService_BurnInMoveOutByLot_InputMessage">
-    <wsdl:part name="parameters" element="tns:BurnInMoveOutByLot" />
-  </wsdl:message>
-  <wsdl:message name="ISN_MoveInOutService_BurnInMoveOutByLot_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BurnInMoveOutByLotResponse" />
-  </wsdl:message>
   <wsdl:portType name="ISN_MoveInOutService">
+    <wsdl:operation name="BurnInMoveOutByLot">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BurnInMoveOutByLot" message="tns:ISN_MoveInOutService_BurnInMoveOutByLot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BurnInMoveOutByLotResponse" message="tns:ISN_MoveInOutService_BurnInMoveOutByLot_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SNMoveInByBatch">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/SNMoveInByBatch" message="tns:ISN_MoveInOutService_SNMoveInByBatch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/SNMoveInByBatchResponse" message="tns:ISN_MoveInOutService_SNMoveInByBatch_OutputMessage" />
@@ -879,6 +944,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetGulyApplyInfo" message="tns:ISN_MoveInOutService_GetGulyApplyInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetGulyApplyInfoResponse" message="tns:ISN_MoveInOutService_GetGulyApplyInfo_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetGulyManageInfoByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetGulyManageInfoByName" message="tns:ISN_MoveInOutService_GetGulyManageInfoByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetGulyManageInfoByNameResponse" message="tns:ISN_MoveInOutService_GetGulyManageInfoByName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGlueWipSignageByApplyUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetGlueWipSignageByApplyUser" message="tns:ISN_MoveInOutService_GetGlueWipSignageByApplyUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetGlueWipSignageByApplyUserResponse" message="tns:ISN_MoveInOutService_GetGlueWipSignageByApplyUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejectGulyApplyByDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/RejectGulyApplyByDevice" message="tns:ISN_MoveInOutService_RejectGulyApplyByDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/RejectGulyApplyByDeviceResponse" message="tns:ISN_MoveInOutService_RejectGulyApplyByDevice_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GlueRecover">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GlueRecover" message="tns:ISN_MoveInOutService_GlueRecover_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GlueRecoverResponse" message="tns:ISN_MoveInOutService_GlueRecover_OutputMessage" />
@@ -886,6 +963,10 @@
     <wsdl:operation name="GlueTaking">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GlueTaking" message="tns:ISN_MoveInOutService_GlueTaking_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GlueTakingResponse" message="tns:ISN_MoveInOutService_GlueTaking_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GlueTakingForNewEquipment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GlueTakingForNewEquipment" message="tns:ISN_MoveInOutService_GlueTakingForNewEquipment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GlueTakingForNewEquipmentResponse" message="tns:ISN_MoveInOutService_GlueTakingForNewEquipment_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GlueIce">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GlueIce" message="tns:ISN_MoveInOutService_GlueIce_InputMessage" />
@@ -903,6 +984,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BindingGTToWbToolBySNlistForNew" message="tns:ISN_MoveInOutService_BindingGTToWbToolBySNlistForNew_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BindingGTToWbToolBySNlistForNewResponse" message="tns:ISN_MoveInOutService_BindingGTToWbToolBySNlistForNew_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetSNReworkMaterial">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetSNReworkMaterial" message="tns:ISN_MoveInOutService_GetSNReworkMaterial_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetSNReworkMaterialResponse" message="tns:ISN_MoveInOutService_GetSNReworkMaterial_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetFirstArticleRelationConfigList">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetFirstArticleRelationConfigList" message="tns:ISN_MoveInOutService_GetFirstArticleRelationConfigList_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetFirstArticleRelationConfigListResponse" message="tns:ISN_MoveInOutService_GetFirstArticleRelationConfigList_OutputMessage" />
@@ -910,6 +995,22 @@
     <wsdl:operation name="AddFirstArticleApproval">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/AddFirstArticleApproval" message="tns:ISN_MoveInOutService_AddFirstArticleApproval_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/AddFirstArticleApprovalResponse" message="tns:ISN_MoveInOutService_AddFirstArticleApproval_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadLineAutoInspectionRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/UploadLineAutoInspectionRecord" message="tns:ISN_MoveInOutService_UploadLineAutoInspectionRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/UploadLineAutoInspectionRecordResponse" message="tns:ISN_MoveInOutService_UploadLineAutoInspectionRecord_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInspectionInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetInspectionInfo" message="tns:ISN_MoveInOutService_GetInspectionInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetInspectionInfoResponse" message="tns:ISN_MoveInOutService_GetInspectionInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentOutputInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetEquipmentOutputInfo" message="tns:ISN_MoveInOutService_GetEquipmentOutputInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetEquipmentOutputInfoResponse" message="tns:ISN_MoveInOutService_GetEquipmentOutputInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLotNumberInfoBySNAndOP">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetLotNumberInfoBySNAndOP" message="tns:ISN_MoveInOutService_GetLotNumberInfoBySNAndOP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/GetLotNumberInfoBySNAndOPResponse" message="tns:ISN_MoveInOutService_GetLotNumberInfoBySNAndOP_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ICORD_SN">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/ICORD_SN" message="tns:ISN_MoveInOutService_ICORD_SN_InputMessage" />
@@ -1267,6 +1368,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/MaterialAutoAssignLot" message="tns:ISN_MoveInOutService_MaterialAutoAssignLot_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/MaterialAutoAssignLotResponse" message="tns:ISN_MoveInOutService_MaterialAutoAssignLot_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="MultiBatchAssign">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/MultiBatchAssign" message="tns:ISN_MoveInOutService_MultiBatchAssign_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/MultiBatchAssignResponse" message="tns:ISN_MoveInOutService_MultiBatchAssign_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="PrintAssignedMaterialLabel">
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/PrintAssignedMaterialLabel" message="tns:ISN_MoveInOutService_PrintAssignedMaterialLabel_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/PrintAssignedMaterialLabelResponse" message="tns:ISN_MoveInOutService_PrintAssignedMaterialLabel_OutputMessage" />
@@ -1419,13 +1524,18 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BurnInMoveInByLot" message="tns:ISN_MoveInOutService_BurnInMoveInByLot_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BurnInMoveInByLotResponse" message="tns:ISN_MoveInOutService_BurnInMoveInByLot_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="BurnInMoveOutByLot">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BurnInMoveOutByLot" message="tns:ISN_MoveInOutService_BurnInMoveOutByLot_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISN_MoveInOutService/BurnInMoveOutByLotResponse" message="tns:ISN_MoveInOutService_BurnInMoveOutByLot_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ISN_MoveInOutService" type="tns:ISN_MoveInOutService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BurnInMoveOutByLot">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/BurnInMoveOutByLot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SNMoveInByBatch">
       <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/SNMoveInByBatch" style="document" />
       <wsdl:input>
@@ -1471,6 +1581,33 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetGulyManageInfoByName">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GetGulyManageInfoByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGlueWipSignageByApplyUser">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GetGlueWipSignageByApplyUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejectGulyApplyByDevice">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/RejectGulyApplyByDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GlueRecover">
       <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GlueRecover" style="document" />
       <wsdl:input>
@@ -1482,6 +1619,15 @@
     </wsdl:operation>
     <wsdl:operation name="GlueTaking">
       <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GlueTaking" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GlueTakingForNewEquipment">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GlueTakingForNewEquipment" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1525,6 +1671,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetSNReworkMaterial">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GetSNReworkMaterial" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetFirstArticleRelationConfigList">
       <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GetFirstArticleRelationConfigList" style="document" />
       <wsdl:input>
@@ -1536,6 +1691,42 @@
     </wsdl:operation>
     <wsdl:operation name="AddFirstArticleApproval">
       <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/AddFirstArticleApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadLineAutoInspectionRecord">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/UploadLineAutoInspectionRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInspectionInfo">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GetInspectionInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEquipmentOutputInfo">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GetEquipmentOutputInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLotNumberInfoBySNAndOP">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/GetLotNumberInfoBySNAndOP" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -2344,6 +2535,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="MultiBatchAssign">
+      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/MultiBatchAssign" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="PrintAssignedMaterialLabel">
       <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/PrintAssignedMaterialLabel" style="document" />
       <wsdl:input>
@@ -2686,19 +2886,10 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="BurnInMoveOutByLot">
-      <soap:operation soapAction="http://tempuri.org/ISN_MoveInOutService/BurnInMoveOutByLot" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="SN_MoveInOutService">
     <wsdl:port name="BasicHttpBinding_ISN_MoveInOutService" binding="tns:BasicHttpBinding_ISN_MoveInOutService">
-      <soap:address location="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc/basic" />
+      <soap:address location="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc/basic" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

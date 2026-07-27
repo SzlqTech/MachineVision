@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" />
-  <xs:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" />
-  <xs:import schemaLocation="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.OffLineContact" />
+  <xs:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" />
+  <xs:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto" />
+  <xs:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" />
+  <xs:import schemaLocation="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.OffLineContact" />
+  <xs:element name="BurnInMoveOutByLot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Recipe" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MachineId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TERMINALID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BurnInMoveOutByLotResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BurnInMoveOutByLotResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SNMoveInByBatch">
     <xs:complexType>
       <xs:sequence>
@@ -89,6 +109,54 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetGulyManageInfoByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="glueName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGulyManageInfoByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetGulyManageInfoByNameResult" nillable="true" type="q7:GulyManageInfoDto" />
+        <xs:element minOccurs="0" name="res" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGlueWipSignageByApplyUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="applyUser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGlueWipSignageByApplyUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetGlueWipSignageByApplyUserResult" nillable="true" type="q8:ArrayOfGlueWipByApplyUserDto" />
+        <xs:element minOccurs="0" name="res" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectGulyApplyByDevice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="formNo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="deviceCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejectGulyApplyByDeviceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RejectGulyApplyByDeviceResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="res" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GlueRecover">
     <xs:complexType>
       <xs:sequence>
@@ -100,7 +168,7 @@
   <xs:element name="GlueRecoverResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GlueRecoverResult" nillable="true" type="q7:GlueRecoverTimeDto" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GlueRecoverResult" nillable="true" type="q9:GlueRecoverTimeDto" />
         <xs:element minOccurs="0" name="res" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -117,7 +185,24 @@
   <xs:element name="GlueTakingResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GlueTakingResult" nillable="true" type="q8:GlueSNStatusModel" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GlueTakingResult" nillable="true" type="q10:GlueSNStatusModel" />
+        <xs:element minOccurs="0" name="res" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GlueTakingForNewEquipment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="formNOs" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="glueSN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lmUser" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GlueTakingForNewEquipmentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GlueTakingForNewEquipmentResult" nillable="true" type="q11:DeviceGlueTakingForNewEquipmentResponseDto" />
         <xs:element minOccurs="0" name="res" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -159,8 +244,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SubSN" nillable="true" type="xs:string" />
-        <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fileDataList" nillable="true" type="q9:ArrayOfbase64Binary" />
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fileNames" nillable="true" type="q10:ArrayOfstring" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fileDataList" nillable="true" type="q12:ArrayOfbase64Binary" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fileNames" nillable="true" type="q13:ArrayOfstring" />
         <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -176,14 +261,31 @@
   <xs:element name="BindingGTToWbToolBySNlistForNew">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q11:BindingGTRequestDto" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q14:BindingGTRequestDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="BindingGTToWbToolBySNlistForNewResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="BindingGTToWbToolBySNlistForNewResult" nillable="true" type="q12:SNResultInfo" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="BindingGTToWbToolBySNlistForNewResult" nillable="true" type="q15:SNResultInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSNReworkMaterial">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sn" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="terminal" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSNReworkMaterialResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto" minOccurs="0" name="GetSNReworkMaterialResult" nillable="true" type="q16:SNReworkMaterialDto" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -195,14 +297,14 @@
   <xs:element name="GetFirstArticleRelationConfigListResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" minOccurs="0" name="GetFirstArticleRelationConfigListResult" nillable="true" type="q13:ArrayOfFirstArticleRelationConfig" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SN_MOVE_INOUTDLL.ApiModelDto.OffLine" minOccurs="0" name="GetFirstArticleRelationConfigListResult" nillable="true" type="q17:ArrayOfFirstArticleRelationConfig" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddFirstArticleApproval">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.OffLineContact" minOccurs="0" name="request" nillable="true" type="q14:AddFirstArticleApprovalDto" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.OffLineContact" minOccurs="0" name="request" nillable="true" type="q18:AddFirstArticleApprovalDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -213,10 +315,69 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UploadLineAutoInspectionRecord">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q19:LineAutoInspectionDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UploadLineAutoInspectionRecordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UploadLineAutoInspectionRecordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInspectionInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInspectionInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetInspectionInfoResult" nillable="true" type="q20:ArrayOfLineAutoInspectionReportDto" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquipmentOutputInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q21:RequestEquipmentDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEquipmentOutputInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetEquipmentOutputInfoResult" nillable="true" type="q22:EquipmentOutputInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLotNumberInfoBySNAndOP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLotNumberInfoBySNAndOPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetLotNumberInfoBySNAndOPResult" nillable="true" type="q23:SNMaterialInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="ICORD_SN">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lsICORD" nillable="true" type="q15:ArrayOfstring" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lsICORD" nillable="true" type="q24:ArrayOfstring" />
         <xs:element minOccurs="0" name="TYPE" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -304,21 +465,21 @@
   <xs:element name="GetICordInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetICordInfoResult" nillable="true" type="q16:ArrayOfHistoryDataReportDto" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetICordInfoResult" nillable="true" type="q25:ArrayOfHistoryDataReportDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetICordInfoBatch">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ipsnList" nillable="true" type="q17:ArrayOfstring" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ipsnList" nillable="true" type="q26:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetICordInfoBatchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetICordInfoBatchResult" nillable="true" type="q18:ArrayOfHistoryDataReportDto" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetICordInfoBatchResult" nillable="true" type="q27:ArrayOfHistoryDataReportDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -392,7 +553,7 @@
         <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="USEDMATERIAL" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GETPARAMETER" nillable="true" type="xs:string" />
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q19:RequestPanelInfo" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q28:RequestPanelInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -605,7 +766,7 @@
   <xs:element name="GetSNDefectDetailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetSNDefectDetailsResult" nillable="true" type="q20:SNInfo" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetSNDefectDetailsResult" nillable="true" type="q29:SNInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -799,7 +960,7 @@
   <xs:element name="GetOpticalWaferComponentInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetOpticalWaferComponentInfoResult" nillable="true" type="q21:WaferComponentInfo" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetOpticalWaferComponentInfoResult" nillable="true" type="q30:WaferComponentInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -902,7 +1063,7 @@
   <xs:element name="Insert2DTestDataExt">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q22:Test2DDataRequest" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q31:Test2DDataRequest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1658,7 +1819,7 @@
   <xs:element name="UploadLaserSNByList">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q23:ArrayOfLaserSNInfo" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q32:ArrayOfLaserSNInfo" />
         <xs:element minOccurs="0" name="UpdateUser" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1859,7 +2020,7 @@
   <xs:element name="UploadLaserSNByListAndMoveIN">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q24:ArrayOfLaserSNInfo" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q33:ArrayOfLaserSNInfo" />
         <xs:element minOccurs="0" name="UpdateUser" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="TerminalID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -1868,7 +2029,7 @@
   <xs:element name="UploadLaserSNByListAndMoveINResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="UploadLaserSNByListAndMoveINResult" nillable="true" type="q25:GetLaserInfo" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="UploadLaserSNByListAndMoveINResult" nillable="true" type="q34:GetLaserInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1891,7 +2052,7 @@
   <xs:element name="GetDefectReasonAndSetScrapInfoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetDefectReasonAndSetScrapInfoResult" nillable="true" type="q26:DefectReason" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetDefectReasonAndSetScrapInfoResult" nillable="true" type="q35:DefectReason" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1905,7 +2066,7 @@
   <xs:element name="Get_MaterialSnResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="Get_MaterialSnResult" nillable="true" type="q27:MaterialSnResponse" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="Get_MaterialSnResult" nillable="true" type="q36:MaterialSnResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1935,14 +2096,14 @@
   <xs:element name="GetIPRReturnkMaterialResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetIPRReturnkMaterialResult" nillable="true" type="q28:ReturnMaterialInfo" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetIPRReturnkMaterialResult" nillable="true" type="q37:ReturnMaterialInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertBICocAccData">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q29:ArrayOfBiCocAccDto" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q38:ArrayOfBiCocAccDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1982,7 +2143,7 @@
   <xs:element name="InsertBICocOpsData">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q30:ArrayOfBiCocOpsDto" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q39:ArrayOfBiCocOpsDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2022,7 +2183,7 @@
   <xs:element name="InsertBICocDataprocessingData">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q31:ArrayOfBiCocDataprocessingDto" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q40:ArrayOfBiCocDataprocessingDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2062,7 +2223,7 @@
   <xs:element name="InsertBICocLivData">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q32:ArrayOfBiCocLivDto" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ls" nillable="true" type="q41:ArrayOfBiCocLivDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2110,7 +2271,7 @@
   <xs:element name="GetMatPrintInfoForCopyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetMatPrintInfoForCopyResult" nillable="true" type="q33:MaterialPrintResponse" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetMatPrintInfoForCopyResult" nillable="true" type="q42:MaterialPrintResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2125,7 +2286,7 @@
   <xs:element name="GetMatPrintInfoForFillResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetMatPrintInfoForFillResult" nillable="true" type="q34:MaterialPrintResponse" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetMatPrintInfoForFillResult" nillable="true" type="q43:MaterialPrintResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2148,7 +2309,7 @@
   <xs:element name="RecordMatPrintLog">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="printCord" nillable="true" type="q35:PrintCord" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="printCord" nillable="true" type="q44:PrintCord" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2171,7 +2332,7 @@
   <xs:element name="GetTestSpecByMaterialResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetTestSpecByMaterialResult" nillable="true" type="q36:TestSpecInfo" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetTestSpecByMaterialResult" nillable="true" type="q45:TestSpecInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2188,7 +2349,24 @@
   <xs:element name="MaterialAutoAssignLotResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="MaterialAutoAssignLotResult" nillable="true" type="q37:SeqMaterialPrintTResponse" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="MaterialAutoAssignLotResult" nillable="true" type="q46:SeqMaterialPrintTResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MultiBatchAssign">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lmuser" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="wo_id" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rprintcount" type="xs:int" />
+        <xs:element minOccurs="0" name="pnsnListStr" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MultiBatchAssignResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="MultiBatchAssignResult" nillable="true" type="q47:SeqMaterialPrintTResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2219,7 +2397,7 @@
   <xs:element name="RemnantMaterialAssignResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="RemnantMaterialAssignResult" nillable="true" type="q38:SeqMaterialPrintTResponse" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="RemnantMaterialAssignResult" nillable="true" type="q48:SeqMaterialPrintTResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2247,7 +2425,7 @@
   <xs:element name="GetReprintMaterialLabelByLotResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetReprintMaterialLabelByLotResult" nillable="true" type="q39:SeqMaterialPrintResponse" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetReprintMaterialLabelByLotResult" nillable="true" type="q49:SeqMaterialPrintResponse" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2269,7 +2447,7 @@
   <xs:element name="BindingGTToWbToolBySNlist">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SNlist" nillable="true" type="q40:ArrayOfstring" />
+        <xs:element xmlns:q50="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SNlist" nillable="true" type="q50:ArrayOfstring" />
         <xs:element minOccurs="0" name="WbToolID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="TerminalID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
@@ -2279,7 +2457,7 @@
   <xs:element name="BindingGTToWbToolBySNlistResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="BindingGTToWbToolBySNlistResult" nillable="true" type="q41:SNResultInfo" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="BindingGTToWbToolBySNlistResult" nillable="true" type="q51:SNResultInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2307,7 +2485,7 @@
         <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="USEDMATERIAL" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GETPARAMETER" nillable="true" type="xs:string" />
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q42:RequestPanelInfo" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q52:RequestPanelInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2328,7 +2506,7 @@
   <xs:element name="GetWoInfoByBatchNoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetWoInfoByBatchNoResult" nillable="true" type="q43:WoResultInfo" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetWoInfoByBatchNoResult" nillable="true" type="q53:WoResultInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2371,7 +2549,7 @@
         <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="USEDMATERIAL" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="GETPARAMETER" nillable="true" type="xs:string" />
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q44:RequestPanelInfo" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q54:RequestPanelInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2385,7 +2563,7 @@
   <xs:element name="AddCarrierIdSNBind">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="carrierIdSNList" nillable="true" type="q45:ArrayOfBiCarrierIdSNBindDto" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="carrierIdSNList" nillable="true" type="q55:ArrayOfBiCarrierIdSNBindDto" />
         <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -2400,7 +2578,7 @@
   <xs:element name="AddCarrierDrawBind">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="carrierDrawBindList" nillable="true" type="q46:ArrayOfBiCarrierDrawBindDto" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="carrierDrawBindList" nillable="true" type="q56:ArrayOfBiCarrierDrawBindDto" />
         <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -2469,7 +2647,7 @@
   <xs:element name="GetSNRelatedInfoByBatchNoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetSNRelatedInfoByBatchNoResult" nillable="true" type="q47:SNWoRelatedInfo" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetSNRelatedInfoByBatchNoResult" nillable="true" type="q57:SNWoRelatedInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2483,14 +2661,14 @@
   <xs:element name="GetGlueTakingActionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetGlueTakingActionResult" nillable="true" type="q48:GlueTKACLogDto" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetGlueTakingActionResult" nillable="true" type="q58:GlueTKACLogDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="BindingBatchBeforeTCTBySNlist">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SNlist" nillable="true" type="q49:ArrayOfstring" />
+        <xs:element xmlns:q59="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SNlist" nillable="true" type="q59:ArrayOfstring" />
         <xs:element minOccurs="0" name="TerminalID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -2499,7 +2677,7 @@
   <xs:element name="BindingBatchBeforeTCTBySNlistResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="BindingBatchBeforeTCTBySNlistResult" nillable="true" type="q50:SNResultInfo" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="BindingBatchBeforeTCTBySNlistResult" nillable="true" type="q60:SNResultInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2514,7 +2692,7 @@
   <xs:element name="GetBakingAndMaterialInfoByBatchNoAndTerminalResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetBakingAndMaterialInfoByBatchNoAndTerminalResult" nillable="true" type="q51:SNWoRelatedInfoExt" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetBakingAndMaterialInfoByBatchNoAndTerminalResult" nillable="true" type="q61:SNWoRelatedInfoExt" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2561,7 +2739,7 @@
   <xs:element name="GetTerminalByOpResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetTerminalByOpResult" nillable="true" type="q52:OpTerminalInfo" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetTerminalByOpResult" nillable="true" type="q62:OpTerminalInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2577,7 +2755,7 @@
   <xs:element name="GetTerminalNameBySNResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetTerminalNameBySNResult" nillable="true" type="q53:TerminalNameBySNInfo" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetTerminalNameBySNResult" nillable="true" type="q63:TerminalNameBySNInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2589,7 +2767,7 @@
   <xs:element name="GetResponsibleUnitWithAllLangResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetResponsibleUnitWithAllLangResult" nillable="true" type="q54:ParamterTypeInfo" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetResponsibleUnitWithAllLangResult" nillable="true" type="q64:ParamterTypeInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2603,7 +2781,7 @@
   <xs:element name="GetOpListInGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetOpListInGroupResult" nillable="true" type="q55:ArrayOfOperationExtDto" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetOpListInGroupResult" nillable="true" type="q65:ArrayOfOperationExtDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2611,7 +2789,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ToolID" nillable="true" type="xs:string" />
-        <xs:element xmlns:q56="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstSN" nillable="true" type="q56:ArrayOfstring" />
+        <xs:element xmlns:q66="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="lstSN" nillable="true" type="q66:ArrayOfstring" />
         <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="isMultiWo" type="xs:boolean" />
       </xs:sequence>
@@ -2620,7 +2798,7 @@
   <xs:element name="ToolSNBindByBatchResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ToolSNBindByBatchResult" nillable="true" type="q57:SNResultInfo" />
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="ToolSNBindByBatchResult" nillable="true" type="q67:SNResultInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2649,7 +2827,7 @@
   <xs:element name="GetCbChannelInfoByPartNoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetCbChannelInfoByPartNoResult" nillable="true" type="q58:CBChannelInfo" />
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetCbChannelInfoByPartNoResult" nillable="true" type="q68:CBChannelInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2663,21 +2841,21 @@
   <xs:element name="GetWoDetialsInfoByWoIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetWoDetialsInfoByWoIdResult" nillable="true" type="q59:WoSNInfo" />
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetWoDetialsInfoByWoIdResult" nillable="true" type="q69:WoSNInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GenerateLotAndSubSNByWoAndPnSN">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q60:GenerateLotRequestDto" />
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="request" nillable="true" type="q70:GenerateLotRequestDto" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GenerateLotAndSubSNByWoAndPnSNResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GenerateLotAndSubSNByWoAndPnSNResult" nillable="true" type="q61:SNBaseInfo" />
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GenerateLotAndSubSNByWoAndPnSNResult" nillable="true" type="q71:SNBaseInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2687,7 +2865,7 @@
         <xs:element minOccurs="0" name="Wo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
-        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="lst" nillable="true" type="q62:ArrayOfXPSNListInfo" />
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="lst" nillable="true" type="q72:ArrayOfXPSNListInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2710,7 +2888,7 @@
   <xs:element name="GetWoLotWithoutXPSNResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetWoLotWithoutXPSNResult" nillable="true" type="q63:SNBaseInfo" />
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetWoLotWithoutXPSNResult" nillable="true" type="q73:SNBaseInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2743,7 +2921,7 @@
   <xs:element name="GetCOCSNInfoByCarrierNoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetCOCSNInfoByCarrierNoResult" nillable="true" type="q64:SNCarrierInfo" />
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetCOCSNInfoByCarrierNoResult" nillable="true" type="q74:SNCarrierInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2758,7 +2936,7 @@
   <xs:element name="GetBIRecipeConfigResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetBIRecipeConfigResult" nillable="true" type="q65:BiRecipeInfo" />
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/InnoLight.BizLink.ServiceHub.Core.Contract.SNMoveInOutContact" minOccurs="0" name="GetBIRecipeConfigResult" nillable="true" type="q75:BiRecipeInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -2778,25 +2956,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="BurnInMoveInByLotResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="BurnInMoveOutByLot">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Recipe" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="MachineId" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="TERMINALID" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="USERID" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="BurnInMoveOutByLotResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="BurnInMoveOutByLotResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="JQPWvcdAA9gBSehR/sETqDZkPG1MwoiePWZVCZ1U3pI=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="ApnkX/GvF0liij201umHmLhyOn+gwhg8f0HaHhxd1u4=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_ISN_MoveInOutService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_ISN_MoveInOutService" contract="SNMoveInOutServiceReference.ISN_MoveInOutService" bindingType="basicHttpBinding" address="http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc/basic" bindingConfiguration="BasicHttpBinding_ISN_MoveInOutService">
+    <endpoint name="BasicHttpBinding_ISN_MoveInOutService" contract="SNMoveInOutServiceReference.ISN_MoveInOutService" bindingType="basicHttpBinding" address="http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc/basic" bindingConfiguration="BasicHttpBinding_ISN_MoveInOutService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://10.190.0.80:8082/EquipInfoService/SN_MoveInOutService.svc/basic</serializedValue>
+          <serializedValue>http://10.190.0.127:8082/EquipInfoService/SN_MoveInOutService.svc/basic</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

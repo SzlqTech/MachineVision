@@ -183,6 +183,7 @@
       <xs:element minOccurs="0" name="GlueCode" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="GlueName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ProDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductBatchId" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="FHCAutoStockInResponseDto" nillable="true" type="tns:FHCAutoStockInResponseDto" />
@@ -227,6 +228,57 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfGulyApply" nillable="true" type="tns:ArrayOfGulyApply" />
+  <xs:complexType name="GulyManageInfoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="COEFFICIENT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CentrifugalMaxCount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DepartmentId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GROSS_WEIGHT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GlueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlueName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GluePartNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HeatCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HeatTemperature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HeatTime" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="IsEnable" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LmTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LmUser" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxUseTime" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MixedMaxCount" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NET_WEIGHT" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OpenExpired" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PlaceTime" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SPECIFICATION" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ShelfLife" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SplitExpired" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StoreTemperature" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UNIT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UseType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WeightLowerLimit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WeightUpperLimit" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GulyManageInfoDto" nillable="true" type="tns:GulyManageInfoDto" />
+  <xs:complexType name="ArrayOfGlueWipByApplyUserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GlueWipByApplyUserDto" nillable="true" type="tns:GlueWipByApplyUserDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGlueWipByApplyUserDto" nillable="true" type="tns:ArrayOfGlueWipByApplyUserDto" />
+  <xs:complexType name="GlueWipByApplyUserDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConfirmTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DeliveryTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ExpiryMinutesRemaining" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="GlueName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GlueSn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recipient" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecipientDepartment" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Site" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminalName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GlueWipByApplyUserDto" nillable="true" type="tns:GlueWipByApplyUserDto" />
   <xs:complexType name="GlueRecoverTimeDto">
     <xs:sequence>
       <xs:element minOccurs="0" name="HeatEndTime" type="xs:dateTime" />
@@ -261,6 +313,38 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="GlueSNStatusModel" nillable="true" type="tns:GlueSNStatusModel" />
+  <xs:complexType name="DeviceGlueTakingForNewEquipmentResponseDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeductDetails" nillable="true" type="tns:ArrayOfDeviceGlueTakingDeductDetailDto" />
+      <xs:element minOccurs="0" name="GlueCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewLineSNs" nillable="true" type="tns:ArrayOfGlueSNStatusModel" />
+      <xs:element minOccurs="0" name="TakingFinished" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TotalDeductQty" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalDemandQty" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UnitCapacity" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceGlueTakingForNewEquipmentResponseDto" nillable="true" type="tns:DeviceGlueTakingForNewEquipmentResponseDto" />
+  <xs:complexType name="ArrayOfDeviceGlueTakingDeductDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceGlueTakingDeductDetailDto" nillable="true" type="tns:DeviceGlueTakingDeductDetailDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviceGlueTakingDeductDetailDto" nillable="true" type="tns:ArrayOfDeviceGlueTakingDeductDetailDto" />
+  <xs:complexType name="DeviceGlueTakingDeductDetailDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeductQty" type="xs:decimal" />
+      <xs:element minOccurs="0" name="StockSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceGlueTakingDeductDetailDto" nillable="true" type="tns:DeviceGlueTakingDeductDetailDto" />
+  <xs:complexType name="ArrayOfGlueSNStatusModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GlueSNStatusModel" nillable="true" type="tns:GlueSNStatusModel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGlueSNStatusModel" nillable="true" type="tns:ArrayOfGlueSNStatusModel" />
   <xs:complexType name="BindingGTRequestDto">
     <xs:sequence>
       <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string" />
@@ -306,6 +390,110 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ErrInfos" nillable="true" type="tns:ErrInfos" />
+  <xs:complexType name="LineAutoInspectionDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EqpCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemList" nillable="true" type="tns:ArrayOfLineAutoInspectionItemDto" />
+      <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LineAutoInspectionDto" nillable="true" type="tns:LineAutoInspectionDto" />
+  <xs:complexType name="ArrayOfLineAutoInspectionItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LineAutoInspectionItemDto" nillable="true" type="tns:LineAutoInspectionItemDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLineAutoInspectionItemDto" nillable="true" type="tns:ArrayOfLineAutoInspectionItemDto" />
+  <xs:complexType name="LineAutoInspectionItemDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ItemCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ItemResult" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LineAutoInspectionItemDto" nillable="true" type="tns:LineAutoInspectionItemDto" />
+  <xs:complexType name="ArrayOfLineAutoInspectionReportDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LineAutoInspectionReportDto" nillable="true" type="tns:LineAutoInspectionReportDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLineAutoInspectionReportDto" nillable="true" type="tns:ArrayOfLineAutoInspectionReportDto" />
+  <xs:complexType name="LineAutoInspectionReportDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EqpCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EqpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsApproval" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsInspection" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LineAutoInspectionReportDto" nillable="true" type="tns:LineAutoInspectionReportDto" />
+  <xs:complexType name="RequestEquipmentDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Condition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lang" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Op" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestEquipmentDto" nillable="true" type="tns:RequestEquipmentDto" />
+  <xs:complexType name="EquipmentOutputInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="lstOutputDetails" nillable="true" type="tns:ArrayOfEquipmentOutputInfoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EquipmentOutputInfo" nillable="true" type="tns:EquipmentOutputInfo" />
+  <xs:complexType name="ArrayOfEquipmentOutputInfoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipmentOutputInfoDto" nillable="true" type="tns:EquipmentOutputInfoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipmentOutputInfoDto" nillable="true" type="tns:ArrayOfEquipmentOutputInfoDto" />
+  <xs:complexType name="EquipmentOutputInfoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EuquipmentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Lmtime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialVer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OpName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Qty" type="xs:int" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SUBSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Terminal" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerminalName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WoId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="XPSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EquipmentOutputInfoDto" nillable="true" type="tns:EquipmentOutputInfoDto" />
+  <xs:complexType name="SNMaterialInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mDetails" nillable="true" type="tns:ArrayOfLotNumberAndMaterialInfoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SNMaterialInfo" nillable="true" type="tns:SNMaterialInfo" />
+  <xs:complexType name="ArrayOfLotNumberAndMaterialInfoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LotNumberAndMaterialInfoDto" nillable="true" type="tns:LotNumberAndMaterialInfoDto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLotNumberAndMaterialInfoDto" nillable="true" type="tns:ArrayOfLotNumberAndMaterialInfoDto" />
+  <xs:complexType name="LotNumberAndMaterialInfoDto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConditionSN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LotNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Material" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialVer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LotNumberAndMaterialInfoDto" nillable="true" type="tns:LotNumberAndMaterialInfoDto" />
   <xs:complexType name="ArrayOfHistoryDataReportDto">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="HistoryDataReportDto" nillable="true" type="tns:HistoryDataReportDto" />
@@ -414,6 +602,7 @@
   <xs:element name="SNDetails" nillable="true" type="tns:SNDetails" />
   <xs:complexType name="Test2DDataRequest">
     <xs:sequence>
+      <xs:element minOccurs="0" name="ChipType" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Deg1" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Deg10" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Deg11" nillable="true" type="xs:string" />
